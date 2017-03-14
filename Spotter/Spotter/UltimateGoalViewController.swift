@@ -10,10 +10,14 @@ import UIKit
 
 class UltimateGoalViewController: UIPageViewController {
 
+    @IBOutlet weak var loseWeight: UIButton!
+    @IBOutlet weak var maintainWeight: UIButton!
+    @IBOutlet weak var buildMuscle: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        buttonStyle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +25,22 @@ class UltimateGoalViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func buttonStyle() {
+        loseWeight.backgroundColor = .clear
+        loseWeight.layer.cornerRadius = 5
+        loseWeight.layer.borderWidth = 1
+        loseWeight.layer.borderColor = UIColor.black.cgColor
+        
+        maintainWeight.backgroundColor = .clear
+        maintainWeight.layer.cornerRadius = 5
+        maintainWeight.layer.borderWidth = 1
+        maintainWeight.layer.borderColor = UIColor.black.cgColor
+        
+        buildMuscle.backgroundColor = .clear
+        buildMuscle.layer.cornerRadius = 5
+        buildMuscle.layer.borderWidth = 1
+        buildMuscle.layer.borderColor = UIColor.black.cgColor
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

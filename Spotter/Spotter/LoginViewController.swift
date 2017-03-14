@@ -8,31 +8,56 @@
 
 import UIKit
 
-class LoginViewController: UIPageViewController {
+class LoginViewController: UIPageViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var invalidLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // implement dismissing the keyboard by tapping
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        // need these so the return will dismiss the keyboard
+//        self.username.delegate = self
+//        self.password.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginButton(_ sender: Any) {
+        if (username.text?.isEmpty)! || (password.text?.isEmpty)! {
+            invalidLabel.text = "Please fill in username and password field."
+        } else {
+            // check for valid username and password
+            let loginCheck = checkValidUsernameAndPassword()
+            if !loginCheck {
+                invalidLabel.text = "Username or password do not match."
+            } else {
+                // log in
+            }
+        }
     }
-    */
+    
+    func checkValidUsernameAndPassword() -> Bool {
+        return true
+    }
+    
+    // this function dismisses the keyboard when returning
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
+    }
+    
+    // this method helps the one in viewDidLoad() to dismiss the keyboard with a tap
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
 }
