@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class LoginViewController: UIPageViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -20,10 +21,9 @@ class LoginViewController: UIPageViewController, UITextFieldDelegate {
         // implement dismissing the keyboard by tapping
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
         // need these so the return will dismiss the keyboard
-//        self.username.delegate = self
-//        self.password.delegate = self
+        self.username.delegate = self
+        self.password.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +33,7 @@ class LoginViewController: UIPageViewController, UITextFieldDelegate {
 
     @IBAction func loginButton(_ sender: Any) {
         if (username.text?.isEmpty)! || (password.text?.isEmpty)! {
-            invalidLabel.text = "Please fill in username and password field."
+            invalidLabel.text = "Please fill in both fields."
         } else {
             // check for valid username and password
             let loginCheck = checkValidUsernameAndPassword()

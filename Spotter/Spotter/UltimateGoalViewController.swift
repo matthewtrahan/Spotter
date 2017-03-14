@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UltimateGoalViewController: UIPageViewController {
+class UltimateGoalViewController: UIViewController {
 
     @IBOutlet weak var loseWeight: UIButton!
     @IBOutlet weak var maintainWeight: UIButton!
@@ -17,7 +17,7 @@ class UltimateGoalViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        buttonStyle()
+        //buttonStyle()
     }
 
     override func didReceiveMemoryWarning() {
