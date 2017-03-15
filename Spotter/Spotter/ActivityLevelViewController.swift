@@ -15,11 +15,19 @@ class ActivityLevelViewController: UIViewController {
     @IBOutlet weak var somewhatActive: UIButton!
     @IBOutlet weak var active: UIButton!
     @IBOutlet weak var extremelyActive: UIButton!
+    @IBOutlet weak var invalidLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         buttonStyle()
+        
+        // so that the back button says back
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
+        invalidLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,4 +89,16 @@ class ActivityLevelViewController: UIViewController {
         //AccountInformationViewController.activity = "extremelyActive"
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
+        if identifier == "cont" {
+            if (notActive.backgroundColor == .clear) && (somewhatActive.backgroundColor == .clear) && (active.backgroundColor == .clear) && (extremelyActive.backgroundColor == .clear){
+                invalidLabel.text = "Please choose an activity level."
+                return false
+            } else {
+                invalidLabel.text = ""
+                return true
+            }
+        }
+        return true
+    }
 }

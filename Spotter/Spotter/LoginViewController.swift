@@ -21,11 +21,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // implement dismissing the keyboard by tapping
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
         // need these so the return will dismiss the keyboard
         self.username.delegate = self
         self.password.delegate = self
         
         textFieldStyle()
+        invalidLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +35,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func loginButton(_ sender: Any) {
-        if (username.text?.isEmpty)! || (password.text?.isEmpty)! {
-            invalidLabel.text = "Please fill in both fields."
-        } else {
-            // check for valid username and password
-            let loginCheck = checkValidUsernameAndPassword()
-            if !loginCheck {
-                invalidLabel.text = "Username or password do not match."
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
+        if identifier == "login" {
+            if (username.text?.isEmpty)! || (password.text?.isEmpty)! {
+                invalidLabel.text = "Please fill in both fields."
+                return false
             } else {
-                // log in
+                // check for valid username and password
+                let loginCheck = checkValidUsernameAndPassword()
+                if !loginCheck {
+                    invalidLabel.text = "Username or password do not match."
+                    return false
+                } else {
+                    // log in
+                    return true
+                }
             }
         }
+        return true
     }
     
     func checkValidUsernameAndPassword() -> Bool {

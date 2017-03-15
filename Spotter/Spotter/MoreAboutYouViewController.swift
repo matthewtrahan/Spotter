@@ -12,6 +12,7 @@ class MoreAboutYouViewController: UIViewController {
 
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var birthdate: UITextField!
+    @IBOutlet weak var invalidLabel: UILabel!
     var myDatePicker: UIDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
@@ -19,6 +20,13 @@ class MoreAboutYouViewController: UIViewController {
 
         buttonStyle()
         setupDatePicker()
+        
+        // so that the back button says back
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
+        invalidLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +81,19 @@ class MoreAboutYouViewController: UIViewController {
     
     func cancelClick() {
         birthdate.resignFirstResponder()
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
+        if identifier == "cont" {
+            if (birthdate.text! == "When were you born?") {
+                invalidLabel.text = "Please fill in a birthdate."
+                return false
+            } else {
+                invalidLabel.text = ""
+                return true
+            }
+        }
+        return true
     }
 }
 

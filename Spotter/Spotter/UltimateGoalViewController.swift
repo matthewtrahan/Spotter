@@ -13,11 +13,19 @@ class UltimateGoalViewController: UIViewController {
     @IBOutlet weak var loseWeight: UIButton!
     @IBOutlet weak var maintainWeight: UIButton!
     @IBOutlet weak var buildMuscle: UIButton!
+    @IBOutlet weak var invalidLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         buttonStyle()
+        
+        // so that the back button says back
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
+        invalidLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,5 +70,18 @@ class UltimateGoalViewController: UIViewController {
         maintainWeight.backgroundColor = .clear
         buildMuscle.backgroundColor = UIColor.lightGray
         //AccountInformationViewController.goal = "buildMuscle"
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
+        if identifier == "cont" {
+            if (loseWeight.backgroundColor == .clear) && (maintainWeight.backgroundColor == .clear) && (buildMuscle.backgroundColor == .clear) {
+                invalidLabel.text = "Please choose a goal."
+                return false
+            } else {
+                invalidLabel.text = ""
+                return true
+            }
+        }
+        return true
     }
 }
