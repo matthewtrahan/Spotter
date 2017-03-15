@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +21,39 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spotter-Banner" translatesAutoresizingMaskIntoConstraints="NO" id="nrm-pn-2mO">
+                                <rect key="frame" x="67" y="83" width="240" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1FQ-N6-fmg"/>
+                                    <constraint firstAttribute="height" constant="178" id="Vnt-9r-TQ3"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-bG-FFE">
+                                <rect key="frame" x="167" y="388" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="P19-JH-Owj"/>
+                                    <constraint firstAttribute="height" constant="40" id="wgE-ks-toH"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q6w-bG-FFE" firstAttribute="top" secondItem="nrm-pn-2mO" secondAttribute="bottom" constant="127" id="HRA-Zc-SVi"/>
+                            <constraint firstItem="Q6w-bG-FFE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ePs-GQ-41P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nrm-pn-2mO" secondAttribute="trailing" constant="52" id="m0E-lI-9EL"/>
+                            <constraint firstItem="nrm-pn-2mO" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="63" id="mcm-xX-jG5"/>
+                            <constraint firstItem="nrm-pn-2mO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="51" id="qb4-Sc-y0P"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="M9c-i2-dMU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="991.20000000000005" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Spotter-Banner" width="640" height="360"/>
+    </resources>
 </document>

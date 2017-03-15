@@ -24,6 +24,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // need these so the return will dismiss the keyboard
         self.username.delegate = self
         self.password.delegate = self
+        
+        textFieldStyle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // this method helps the one in viewDidLoad() to dismiss the keyboard with a tap
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func textFieldStyle() {
+        username.backgroundColor = .clear
+        username.layer.cornerRadius = 5
+        username.layer.borderWidth = 1
+        username.layer.borderColor = UIColor.black.cgColor
+        
+        password.backgroundColor = .clear
+        password.layer.cornerRadius = 5
+        password.layer.borderWidth = 1
+        password.layer.borderColor = UIColor.black.cgColor
     }
 
 }

@@ -17,7 +17,7 @@ class UltimateGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //buttonStyle()
+        buttonStyle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,27 @@ class UltimateGoalViewController: UIViewController {
         buildMuscle.layer.cornerRadius = 5
         buildMuscle.layer.borderWidth = 1
         buildMuscle.layer.borderColor = UIColor.black.cgColor
-
     }
-
+    
+    // functions that change the background color when an option is selected
+    @IBAction func loseWeightSelected(_ sender: Any) {
+        loseWeight.backgroundColor = UIColor.lightGray
+        maintainWeight.backgroundColor = .clear
+        buildMuscle.backgroundColor = .clear
+        //AccountInformationViewController.goal = "loseWeight"
+    }
+    
+    @IBAction func maintainWeightSelected(_ sender: Any) {
+        loseWeight.backgroundColor = .clear
+        maintainWeight.backgroundColor = UIColor.lightGray
+        buildMuscle.backgroundColor = .clear
+        //AccountInformationViewController.goal = "maintainWeight"
+    }
+    
+    @IBAction func buildMuscleSelected(_ sender: Any) {
+        loseWeight.backgroundColor = .clear
+        maintainWeight.backgroundColor = .clear
+        buildMuscle.backgroundColor = UIColor.lightGray
+        //AccountInformationViewController.goal = "buildMuscle"
+    }
 }
