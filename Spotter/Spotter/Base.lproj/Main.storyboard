@@ -157,13 +157,13 @@
                                 <rect key="frame" x="38" y="161" width="299" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTf-aZ-eOY">
                                 <rect key="frame" x="38" y="285" width="299" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5En-U0-3aA">
                                 <rect key="frame" x="38" y="256" width="299" height="21"/>
@@ -180,6 +180,9 @@
                                 <state key="normal" title="Reset Password">
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPassword:" destination="Voi-KC-mz7" eventType="touchUpInside" id="D7b-wM-PnF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khr-WZ-I8g">
                                 <rect key="frame" x="16" y="390" width="343" height="32"/>
@@ -190,6 +193,18 @@
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zk-ab-x8h">
+                                <rect key="frame" x="98" y="430" width="178" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5jR-7v-zLj"/>
+                                    <constraint firstAttribute="height" constant="30" id="6lA-9z-4hj"/>
+                                    <constraint firstAttribute="width" constant="178" id="E13-eQ-YhY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="J7d-0B-Uzf"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="96d-Ns-6vQ" kind="show" id="ZDY-9k-kGr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -199,6 +214,7 @@
                             <constraint firstItem="d9y-hK-JhB" firstAttribute="leading" secondItem="CgH-LX-xTf" secondAttribute="leadingMargin" constant="22" id="62u-tK-vKc"/>
                             <constraint firstItem="khr-WZ-I8g" firstAttribute="top" secondItem="4hJ-kz-7SV" secondAttribute="bottom" constant="22" id="8q1-hb-ddM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d9y-hK-JhB" secondAttribute="trailing" constant="22" id="CR8-vb-mnd"/>
+                            <constraint firstItem="0Zk-ab-x8h" firstAttribute="centerX" secondItem="CgH-LX-xTf" secondAttribute="centerX" id="F7P-LF-0y9"/>
                             <constraint firstItem="drd-PS-ToZ" firstAttribute="leading" secondItem="CgH-LX-xTf" secondAttribute="leadingMargin" constant="22" id="Fq9-GP-hv7"/>
                             <constraint firstItem="khr-WZ-I8g" firstAttribute="leading" secondItem="CgH-LX-xTf" secondAttribute="leadingMargin" id="Gmn-ap-c0f"/>
                             <constraint firstItem="4hJ-kz-7SV" firstAttribute="top" secondItem="uTf-aZ-eOY" secondAttribute="bottom" constant="8" id="Kx2-0f-CyP"/>
@@ -211,9 +227,11 @@
                             <constraint firstItem="uTf-aZ-eOY" firstAttribute="top" secondItem="5En-U0-3aA" secondAttribute="bottom" constant="8" id="lnA-2H-wVc"/>
                             <constraint firstItem="drd-PS-ToZ" firstAttribute="top" secondItem="d9y-hK-JhB" secondAttribute="bottom" constant="25" id="lnP-d6-7DC"/>
                             <constraint firstItem="d9y-hK-JhB" firstAttribute="top" secondItem="1Mi-1W-lRl" secondAttribute="bottom" constant="42" id="myv-dh-9mS"/>
+                            <constraint firstItem="0Zk-ab-x8h" firstAttribute="top" secondItem="khr-WZ-I8g" secondAttribute="bottom" constant="8" id="rUV-5z-Pbl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backToLoginButton" destination="0Zk-ab-x8h" id="pu6-K0-xJe"/>
                         <outlet property="email" destination="d9y-hK-JhB" id="NV1-jp-dpe"/>
                         <outlet property="feedbackLabel" destination="khr-WZ-I8g" id="wW0-RV-qMR"/>
                         <outlet property="newPassword" destination="uTf-aZ-eOY" id="QUZ-SH-bxy"/>
@@ -222,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAw-no-yeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="857"/>
+            <point key="canvasLocation" x="1902" y="857"/>
         </scene>
         <!--Ultimate Goal-->
         <scene sceneID="YS1-q8-LLe">
@@ -856,4 +874,7 @@
     <resources>
         <image name="Spotter-Banner" width="640" height="360"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZDY-9k-kGr"/>
+    </inferredMetricsTieBreakers>
 </document>

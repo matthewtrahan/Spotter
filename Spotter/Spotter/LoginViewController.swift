@@ -79,9 +79,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else {
                 return false
             }
-        }
-        
-        catch let error as NSError {
+        } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         

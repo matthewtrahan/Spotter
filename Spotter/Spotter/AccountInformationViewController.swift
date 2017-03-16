@@ -60,7 +60,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func completeSignUp(_ sender: Any) {
-        if (username.text!.isEmpty) || (password.text!.isEmpty) || (password.text!.isEmpty) {
+        if (username.text!.isEmpty) || (password.text!.isEmpty) || (email.text!.isEmpty) {
             invalidLabel2.text = "Please fill in all fields."
             invalidLabel.text = ""
         } else if (!isValidEmail(testStr: email.text!)) {
@@ -86,38 +86,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
-//        if identifier == "cont" {
-//            if (username.text!.isEmpty) || (password.text!.isEmpty) || (password.text!.isEmpty) {
-//                invalidLabel2.text = "Please fill in all fields."
-//                invalidLabel.text = ""
-//                return false
-//            } else if (!isValidEmail(testStr: email.text!)) {
-//                invalidLabel2.text = ""
-//                invalidLabel.text = "Please enter a valid email."
-//                return false
-//            } else if (!checkUsernameOrEmailTaken(testStr: email.text!, entityToCheck: "email", format: "email == %@")) {
-//                invalidLabel2.text = ""
-//                invalidLabel.text = "Sorry, this email is taken."
-//                return false
-//            } else if (!checkUsernameOrEmailTaken(testStr: username.text!, entityToCheck: "username", format: "username == %@")) {
-//                invalidLabel2.text = "Sorry, this username is taken."
-//                invalidLabel.text = ""
-//                return false
-//            } else {
-//                // add to core data
-//                userEmail = email.text
-//                userPassword = password.text
-//                userUsername = username.text
-//                saveUser(username: userUsername!, password: userPassword!, email: userEmail!, goal: goal!, activityLevel: activity!, gender: gender!, birthdate: birthdate!, height: height!, weight: weight!, goalWeight: goalWeight!)
-//                
-//                return true
-//            }
-//        }
-//        return true
-//    }
-    
+        
     func saveUser(username: String, password: String, email: String, goal: String, activityLevel: String, gender: String, birthdate: String, height: String, weight: Double, goalWeight: Double) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
