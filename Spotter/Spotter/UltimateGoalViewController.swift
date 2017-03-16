@@ -2,6 +2,9 @@
 //  UltimateGoalViewController.swift
 //  Spotter
 //
+//  This VC gets the user's ultimate goal with 
+//  clickable buttons that highlight on touch.
+//
 //  Created by Matthew Trahan on 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
@@ -10,6 +13,7 @@ import UIKit
 
 class UltimateGoalViewController: UIViewController {
 
+    // storyboard elements
     @IBOutlet weak var loseWeight: UIButton!
     @IBOutlet weak var maintainWeight: UIButton!
     @IBOutlet weak var buildMuscle: UIButton!
@@ -33,6 +37,7 @@ class UltimateGoalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // stylize the buttons (round them, outline, etc)
     func buttonStyle() {
         loseWeight.backgroundColor = .clear
         loseWeight.layer.cornerRadius = 5
@@ -69,6 +74,7 @@ class UltimateGoalViewController: UIViewController {
         buildMuscle.backgroundColor = UIColor.lightGray
     }
     
+    // pass the goal to the next VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let seg = segue.destination as! ActivityLevelViewController
         if loseWeight.backgroundColor == UIColor.lightGray {
@@ -80,6 +86,7 @@ class UltimateGoalViewController: UIViewController {
         }
     }
     
+    // if a user has not chosen an option, do not let them continue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
         if identifier == "cont" {
             if (loseWeight.backgroundColor == .clear) && (maintainWeight.backgroundColor == .clear) && (buildMuscle.backgroundColor == .clear) {

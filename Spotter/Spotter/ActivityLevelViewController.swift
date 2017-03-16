@@ -2,6 +2,8 @@
 //  ActivityLevelViewController.swift
 //  Spotter
 //
+//  Get the user's activity level. Very similar to UltimateGoalVC.
+//
 //  Created by Matthew Trahan on 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
@@ -11,11 +13,14 @@ import UIKit
 
 class ActivityLevelViewController: UIViewController {
 
+    // storyboard elements
     @IBOutlet weak var notActive: UIButton!
     @IBOutlet weak var somewhatActive: UIButton!
     @IBOutlet weak var active: UIButton!
     @IBOutlet weak var extremelyActive: UIButton!
     @IBOutlet weak var invalidLabel: UILabel!
+    
+    // user data from previous VC
     var goal: String?
     
     override func viewDidLoad() {
@@ -36,6 +41,7 @@ class ActivityLevelViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // stylize the buttons (round them, outline, etc)
     func buttonStyle() {
         notActive.backgroundColor = .clear
         notActive.layer.cornerRadius = 5
@@ -58,6 +64,7 @@ class ActivityLevelViewController: UIViewController {
         extremelyActive.layer.borderColor = UIColor.black.cgColor
     }
     
+    // these functions highlight an option when selected
     @IBAction func notActiveSelected(_ sender: Any) {
         notActive.backgroundColor = UIColor.lightGray
         somewhatActive.backgroundColor = .clear
@@ -86,6 +93,7 @@ class ActivityLevelViewController: UIViewController {
         extremelyActive.backgroundColor = UIColor.lightGray
     }
     
+    // pass the user's choice along to the next VC as well as the previous one
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let seg = segue.destination as! MoreAboutYouViewController
         if notActive.backgroundColor == UIColor.lightGray {
@@ -101,6 +109,7 @@ class ActivityLevelViewController: UIViewController {
         seg.goal = goal
     }
     
+    // do not allow user to continue if they have not selected an option
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
         if identifier == "cont" {
             if (notActive.backgroundColor == .clear) && (somewhatActive.backgroundColor == .clear) && (active.backgroundColor == .clear) && (extremelyActive.backgroundColor == .clear){

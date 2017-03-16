@@ -2,6 +2,11 @@
 //  LoginViewController.swift
 //  Spotter
 //
+//  This is the VC that is presented to the user on launch. 
+//  It checks for a valid username and password combination,
+//  provides an option to sign up, login, or change their
+//  password and proceeds with a login when given valid creds.
+//
 //  Created by Matthew Trahan on 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
@@ -11,6 +16,7 @@ import CoreData
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    // storyboard elements
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
@@ -26,17 +32,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.username.delegate = self
         self.password.delegate = self
         
+        // style the text fields and set the feedback label to empty
         textFieldStyle()
         invalidLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    // check to see if we should take the segue - validate username/password
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
         if identifier == "login" {
+            // they must fill in both fields to have a chance at logging in. do not want to segue in this case
             if (username.text?.isEmpty)! || (password.text?.isEmpty)! {
                 invalidLabel.text = "Please fill in both fields."
                 return false
@@ -44,12 +52,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // check for valid username and password
                 let loginCheck = checkValidUsernameAndPassword(username: self.username.text!, password: self.password.text!)
                 if !loginCheck {
-                    if invalidLabel.text != "Username does not exist." {
-                        invalidLabel.text = "Username or password do not match."
-                    }
+                    // the user input an invalid username/password combination
+                    invalidLabel.text = "Username or password is incorrect."
+                    
+                    // do not want to segue to account in this case - invalid credentials
                     return false
                 } else {
-                    // log in
+                    // log in - valid credentials
                     return true
                 }
             }
@@ -57,12 +66,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    // check if the username exists and that the username/password match
     func checkValidUsernameAndPassword(username: String, password: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let predicate = NSPredicate (format:"username = %@", username)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         fetchRequest.predicate = predicate
+        
         do {
             let fetchResult = try managedObjectContext.fetch(fetchRequest)
             if fetchResult.count > 0 {
@@ -70,13 +81,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if objectEntity.username == username && objectEntity.password == password {
                     // they match with the Core Data
                     return true
-                }
-                else {
+                } else {
                     // wrong username/password combination
                     return false
                 }
-            }
-            else {
+            } else {
                 return false
             }
         } catch let error as NSError {
@@ -97,6 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    // make the text fields pretty
     func textFieldStyle() {
         username.backgroundColor = .clear
         username.layer.cornerRadius = 5

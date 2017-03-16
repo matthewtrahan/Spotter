@@ -2,6 +2,9 @@
 //  MoreAboutYouViewController.swift
 //  Spotter
 //
+//  Get the user's gender as well as their birthdate
+//  through a segmented control and date picker, respectively.
+//
 //  Created by Matthew Trahan on 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
@@ -10,10 +13,15 @@ import UIKit
 
 class MoreAboutYouViewController: UIViewController {
 
+    // storyboard elements
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var birthdate: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
+    
+    // date picker
     var myDatePicker: UIDatePicker = UIDatePicker()
+    
+    // core data info to be passed along
     var goal: String?
     var activity: String?
     
@@ -36,6 +44,7 @@ class MoreAboutYouViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // pass along data from previous VC's as well as current
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let seg = segue.destination as! EvenMoreAboutYouViewController
         
@@ -52,6 +61,7 @@ class MoreAboutYouViewController: UIViewController {
         seg.birthdate = birthdate.text
     }
     
+    // stylize the date field
     func buttonStyle() {
         birthdate.backgroundColor = .clear
         birthdate.layer.cornerRadius = 5
@@ -89,18 +99,20 @@ class MoreAboutYouViewController: UIViewController {
         birthdate.inputAccessoryView = toolBar
     }
     
+    // set up the done button for the toolbar
     func doneClick() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         birthdate.text = dateFormatter.string(from: myDatePicker.date)
         birthdate.resignFirstResponder()
-        // AccountInformationViewController.birthdate = birthdate.text
     }
     
+    // set up the cancel button for the toolbar
     func cancelClick() {
         birthdate.resignFirstResponder()
     }
     
+    // do not allow the user to continue if all fields not filled in
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
         if identifier == "cont" {
             if (birthdate.text! == "When were you born?") {

@@ -11,13 +11,13 @@ import CoreData
 
 class AccountInformationViewController: UIViewController, UITextFieldDelegate {
 
+    // storyboard elements
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
     @IBOutlet weak var invalidLabel2: UILabel!
     @IBOutlet weak var backToLoginButton: UIButton!
-    var alertController:UIAlertController? = nil
 
     // core data info
     var goal: String?
@@ -56,23 +56,32 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func completeSignUp(_ sender: Any) {
+        // check if all fields are completed and give user feedback if not
         if (username.text!.isEmpty) || (password.text!.isEmpty) || (email.text!.isEmpty) {
             invalidLabel2.text = "Please fill in all fields."
             invalidLabel.text = ""
-        } else if (!isValidEmail(testStr: email.text!)) {
+        }
+        // check if the email is valid ie in <name>@<name>.<extension> format and give user feedback if needed
+        else if (!isValidEmail(testStr: email.text!)) {
             invalidLabel2.text = ""
             invalidLabel.text = "Please enter a valid email."
-        } else if (!checkUsernameOrEmailTaken(testStr: email.text!, entityToCheck: "email", format: "email == %@")) {
+        }
+        // check the Core Data to see if the email is already in use and give user feedback if necessary
+        else if (!checkUsernameOrEmailTaken(testStr: email.text!, entityToCheck: "email", format: "email == %@")) {
             invalidLabel2.text = ""
             invalidLabel.text = "Sorry, this email is taken."
-        } else if (!checkUsernameOrEmailTaken(testStr: username.text!, entityToCheck: "username", format: "username == %@")) {
+        }
+        // check the Core Data to see if the username is already in use and give user feedback if necessary
+        else if (!checkUsernameOrEmailTaken(testStr: username.text!, entityToCheck: "username", format: "username == %@")) {
             invalidLabel2.text = "Sorry, this username is taken."
             invalidLabel.text = ""
-        } else {
+        }
+        // they are good to go, add the information to the CoreData base, tell them they are registered and give
+        // a button to go back to the login page
+        else {
             // add to core data
             userEmail = email.text
             userPassword = password.text
@@ -86,7 +95,8 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
-        
+    
+    // save the data to memory
     func saveUser(username: String, password: String, email: String, goal: String, activityLevel: String, gender: String, birthdate: String, height: String, weight: Double, goalWeight: Double) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -120,6 +130,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         coreData.append(user)
     }
     
+    // style
     func buttonStyle() {
         email.backgroundColor = .clear
         email.layer.cornerRadius = 5
@@ -137,14 +148,16 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         password.layer.borderColor = UIColor.black.cgColor
     }
     
+    // use a regular expression to check for a valid email
     func isValidEmail(testStr: String) -> Bool {
-        // print("validate calendar: \(testStr)")
+        // must be in format <string>@<string>.<extension < 4 characters>
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
     
+    // query the core data to check if the username or email is in use
     func checkUsernameOrEmailTaken(testStr: String, entityToCheck: String, format: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -155,15 +168,14 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         request.fetchLimit = 1
         
         do {
+            // if count is nonzero, they are in use
             let count = try managedContext.count(for: request)
             if(count == 0){
                 return true
-            }
-            else{
+            } else {
                 return false
             }
-        }
-        catch let error as NSError {
+        } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         return true

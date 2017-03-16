@@ -2,6 +2,10 @@
 //  EvenMoreAboutYouViewController.swift
 //  Spotter
 //
+//  Get the user's height, weight and goalWeight.
+//  The height uses a custom picker view, while the
+//  weights use a decimal pad to ensure number's only.
+//
 //  Created by Matthew Trahan on 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
@@ -10,12 +14,17 @@ import UIKit
 
 class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // story board elements
     @IBOutlet weak var height: UITextField!
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var goalWeight: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
+    
+    // picker view variables
     var heightPicker: UIPickerView = UIPickerView()
     var heightPickerData: [[String]] = [[String]]()
+    
+    // core data to be passed forward
     var goal: String?
     var activity: String?
     var gender: String?
@@ -68,6 +77,7 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
         // Dispose of any resources that can be recreated.
     }
     
+    // create the height picker with data and a toolbar for clicking done and cancel
     func setupHeightPicker() {
         // Connect data
         self.heightPicker.delegate = self
@@ -94,22 +104,25 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
         height.inputAccessoryView = toolBar
     }
     
+    // set the text field to the value selected by the user
     func pickerView(heightPicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         height.text = heightPickerData[row][component]
     }
     
+    // set up the done button in the toolbar to set the text field to selected data
     func doneClick() {
         let feetRow = heightPicker.selectedRow(inComponent: 0)
         let inchesRow = heightPicker.selectedRow(inComponent: 1)
         height.text = "\(heightPickerData[0][feetRow]) \(heightPickerData[1][inchesRow])"
         height.resignFirstResponder()
-        // AccountInformationViewController.height = height.text
     }
     
+    // set up the cancel button to resign the picker view
     func cancelClick() {
         height.resignFirstResponder()
     }
     
+    // pass along the data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let seg = segue.destination as! AccountInformationViewController
         
@@ -123,6 +136,7 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
         seg.goalWeight = Double(goalWeight.text!)
     }
     
+    // do not allow the user to continue if all fields are not done
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
         if identifier == "cont" {
             if (height.text!.isEmpty) || (weight.text!.isEmpty) || (goalWeight.text!.isEmpty) {
@@ -136,6 +150,7 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
         return true
     }
     
+    // style
     func createPlaceholders() {
         // Sets up the "buttons"
         height.placeholder = "What is your height?"
@@ -146,6 +161,7 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
         goalWeight.textAlignment = .center
     }
     
+    // style
     func buttonStyle() {
         height.backgroundColor = .clear
         height.layer.cornerRadius = 5
