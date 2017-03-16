@@ -60,7 +60,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YPT-XS-hUk" kind="show" identifier="login" id="uSO-Rn-7g7"/>
+                                    <segue destination="kET-pD-gf7" kind="presentation" id="rxE-ec-jzi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-JI-kZS">
@@ -116,24 +116,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1181.5999999999999" y="138.98050974512745"/>
-        </scene>
-        <!--Successful Login-->
-        <scene sceneID="eXx-Uj-2pX">
-            <objects>
-                <viewController title="Successful Login" id="YPT-XS-hUk" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zGd-ti-5cf"/>
-                        <viewControllerLayoutGuide type="bottom" id="ClR-xB-ka0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DCh-aF-nqX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQq-jz-hbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1902" y="139"/>
         </scene>
         <!--Reset Password-->
         <scene sceneID="ake-XL-K2U">
@@ -241,6 +223,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAw-no-yeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1902" y="857"/>
+        </scene>
+        <!--Progress-->
+        <scene sceneID="ZDi-p2-0qy">
+            <objects>
+                <viewController id="Wcr-il-N0Z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ln4-6m-w9Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="258-oK-iLf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rx8-Gi-3Dp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alz-kO-7Ov">
+                                <rect key="frame" x="16" y="100" width="343" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alz-kO-7Ov" firstAttribute="leading" secondItem="rx8-Gi-3Dp" secondAttribute="leadingMargin" id="QVS-bA-CU6"/>
+                            <constraint firstItem="alz-kO-7Ov" firstAttribute="top" secondItem="ln4-6m-w9Q" secondAttribute="bottom" constant="80" id="Y4I-eU-CUc"/>
+                            <constraint firstItem="alz-kO-7Ov" firstAttribute="trailing" secondItem="rx8-Gi-3Dp" secondAttribute="trailingMargin" id="fS3-Fe-6Zp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Progress" image="graph-icon" id="GdA-qk-BHQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xht-jG-BHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2978.4000000000001" y="485.30734632683664"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="7hI-hf-OAw">
+            <objects>
+                <viewController id="dwM-et-i0V" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xh0-tm-ldt"/>
+                        <viewControllerLayoutGuide type="bottom" id="FHl-0o-XRi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v8z-Zi-0BW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeO-NH-oSu">
+                                <rect key="frame" x="16" y="100" width="343" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MeO-NH-oSu" firstAttribute="leading" secondItem="v8z-Zi-0BW" secondAttribute="leadingMargin" id="0BV-gp-lTE"/>
+                            <constraint firstItem="MeO-NH-oSu" firstAttribute="top" secondItem="xh0-tm-ldt" secondAttribute="bottom" constant="80" id="FeB-al-SId"/>
+                            <constraint firstItem="MeO-NH-oSu" firstAttribute="trailing" secondItem="v8z-Zi-0BW" secondAttribute="trailingMargin" id="dty-oz-fiR"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-50" id="VH4-Lz-62E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDS-jZ-5Kp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976.8000000000002" y="1152.7736131934034"/>
+        </scene>
+        <!--Today's Workout-->
+        <scene sceneID="QEk-T0-I0O">
+            <objects>
+                <viewController id="FOz-6L-qHV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ohr-yw-KEu"/>
+                        <viewControllerLayoutGuide type="bottom" id="MgE-DE-ipL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tme-O8-olP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Today's Workout" image="dumbbell-icon" id="sMg-AT-AgQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BqD-9g-6kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2979" y="-170"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2yH-KH-Rmr">
+            <objects>
+                <tabBarController id="kET-pD-gf7" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ncs-HD-SGN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FOz-6L-qHV" kind="relationship" relationship="viewControllers" id="acn-8O-dOQ"/>
+                        <segue destination="Wcr-il-N0Z" kind="relationship" relationship="viewControllers" id="JVu-ft-BZG"/>
+                        <segue destination="dwM-et-i0V" kind="relationship" relationship="viewControllers" id="V4O-7P-onH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7Z-3Z-WO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="139"/>
         </scene>
         <!--Ultimate Goal-->
         <scene sceneID="YS1-q8-LLe">
@@ -359,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcF-9p-xbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="-574"/>
+            <point key="canvasLocation" x="1902" y="-996"/>
         </scene>
         <!--Activity Level-->
         <scene sceneID="5Ht-PH-KBp">
@@ -496,7 +580,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yu2-Zn-8L9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.8000000000002" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="2567" y="-996"/>
         </scene>
         <!--More About You-->
         <scene sceneID="3In-do-uqB">
@@ -601,7 +685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AlA-Dl-bD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3300" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="3241" y="-996"/>
         </scene>
         <!--Even More About You-->
         <scene sceneID="3gP-NE-QUS">
@@ -726,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBT-mL-VYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3973.5999999999999" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="3913" y="-996"/>
         </scene>
         <!--Account Information-->
         <scene sceneID="3CA-kz-oKB">
@@ -850,7 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npn-Au-bCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4624.8000000000002" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="4569" y="-996"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vJ0-h9-bYz">
@@ -872,9 +956,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Settings-50" width="25" height="25"/>
         <image name="Spotter-Banner" width="640" height="360"/>
+        <image name="dumbbell-icon" width="25" height="25"/>
+        <image name="graph-icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZDY-9k-kGr"/>
+        <segue reference="WMe-tc-EYa"/>
     </inferredMetricsTieBreakers>
 </document>

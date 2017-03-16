@@ -90,6 +90,7 @@ class ForgotPasswordViewController: UIViewController {
                 // fetch the user and then update the password
                 let objectEntity: User = fetchResult.first as! User
                 objectEntity.setValue(newPassword, forKey: "password")
+                try managedObjectContext.save()
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
