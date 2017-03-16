@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AccountInformationViewController: UIViewController, UITextFieldDelegate {
 
@@ -15,16 +16,20 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
     @IBOutlet weak var invalidLabel2: UILabel!
-    var goal: String = ""
-    var activity: String = ""
-    var gender: String = ""
-    var birthdate: Date?
-    var height: String = ""
-    var weight: Double = 0.0
-    var goalWeight: Double = 0.0
-    var userEmail: String = ""
-    var userPassword: String = ""
-    var userUsername: String = ""
+    var alertController:UIAlertController? = nil
+    
+    // core data info
+    var goal: String?
+    var activity: String?
+    var gender: String?
+    var birthdate: String?
+    var height: String?
+    var weight: Double?
+    var goalWeight: Double?
+    var userEmail: String?
+    var userPassword: String?
+    var userUsername: String?
+    var coreData = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +42,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         buttonStyle()
         
         // implement dismissing the keyboard by tapping
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AccountInformationViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         // need these so the return will dismiss the keyboard
@@ -63,25 +68,71 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
                 invalidLabel2.text = ""
                 invalidLabel.text = "Please enter a valid email."
                 return false
+            } else if (!checkUsernameOrEmailTaken(testStr: email.text!, entityToCheck: "email", format: "email == %@")) {
+                invalidLabel2.text = ""
+                invalidLabel.text = "Sorry, this email is taken."
+                return false
+            } else if (!checkUsernameOrEmailTaken(testStr: username.text!, entityToCheck: "username", format: "username == %@")) {
+                invalidLabel2.text = "Sorry, this username is taken."
+                invalidLabel.text = ""
+                return false
             } else {
                 // add to core data
+                userEmail = email.text
+                userPassword = password.text
+                userUsername = username.text
+                saveUser(username: userUsername!, password: userPassword!, email: userEmail!, goal: goal!, activityLevel: activity!, gender: gender!, birthdate: birthdate!, height: height!, weight: weight!, goalWeight: goalWeight!)
+                
+                // showAlert()
+                
                 return true
             }
         }
         return true
     }
     
-    @IBAction func completeSignUp(_ sender: Any) {
-        if (username.text!.isEmpty) || (password.text!.isEmpty) || (password.text!.isEmpty) {
-            invalidLabel.text = "Please fill in all fields."
-            invalidLabel2.text = ""
-        } else if (!isValidEmail(testStr: email.text!)) {
-            invalidLabel.text = ""
-            invalidLabel2.text = "Please enter a valid email."
-        } else {
-            // add to core data
+    func showAlert() {
+        self.alertController = UIAlertController(title: "Registration Successful!", message: "You can now login with your specified username and password.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
         }
-        self.navigationController?.popToRootViewController(animated: true)
+        self.alertController!.addAction(OKAction)
+        
+        self.present(self.alertController!, animated: true, completion: nil)
+    }
+    
+    func saveUser(username: String, password: String, email: String, goal: String, activityLevel: String, gender: String, birthdate: String, height: String, weight: Double, goalWeight: Double) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create the entity we want to save
+        let entity =  NSEntityDescription.entity(forEntityName: "User", in: managedContext)
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        user.setValue(username, forKey: "username")
+        user.setValue(password, forKey: "password")
+        user.setValue(email, forKey: "email")
+        user.setValue(goal, forKey: "ultimateGoal")
+        user.setValue(activityLevel, forKey: "activityLevel")
+        user.setValue(gender, forKey: "gender")
+        user.setValue(birthdate, forKey: "birthdate")
+        user.setValue(height, forKey: "height")
+        user.setValue(weight, forKey: "weight")
+        user.setValue(goalWeight, forKey: "goalWeight")
+        
+        // Commit the changes.
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        // append the changes
+        coreData.append(user)
     }
     
     func buttonStyle() {
@@ -101,7 +152,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         password.layer.borderColor = UIColor.black.cgColor
     }
     
-    func isValidEmail(testStr:String) -> Bool {
+    func isValidEmail(testStr: String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
@@ -109,6 +160,32 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         return emailTest.evaluate(with: testStr)
     }
     
+    func checkUsernameOrEmailTaken(testStr: String, entityToCheck: String, format: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let predicate = NSPredicate(format: format, testStr)
+        request.predicate = predicate
+        request.fetchLimit = 1
+        
+        do {
+            let count = try managedContext.count(for: request)
+            if(count == 0){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        return true
+    }
     
-
+    // this method helps the one in viewDidLoad() to dismiss the keyboard with a tap
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

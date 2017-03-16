@@ -177,7 +177,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xND-Cp-Xdz">
                                 <rect key="frame" x="16" y="144" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="52s-U7-AdP"/>
                                     <constraint firstAttribute="height" constant="55" id="NyY-Rp-88z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -191,7 +190,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wo-Rt-VvX">
                                 <rect key="frame" x="16" y="207" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="Sy2-Eb-oFF"/>
                                     <constraint firstAttribute="height" constant="55" id="zn3-Wm-aXR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -205,7 +203,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-au-JND">
                                 <rect key="frame" x="16" y="270" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="5fN-Jd-uR6"/>
                                     <constraint firstAttribute="height" constant="55" id="QHe-rN-dk7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -221,7 +218,6 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="KBS-LG-hOK"/>
-                                    <constraint firstAttribute="width" constant="112" id="d1M-Mu-uVn"/>
                                 </constraints>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +296,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lji-jI-bMH">
                                 <rect key="frame" x="16" y="144" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="DpW-w8-Xhf"/>
                                     <constraint firstAttribute="height" constant="55" id="dxQ-wy-TMY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -314,7 +309,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No2-Oh-eUl">
                                 <rect key="frame" x="16" y="207" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="6k3-19-gwi"/>
                                     <constraint firstAttribute="height" constant="55" id="Oky-ci-XKR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -329,7 +323,6 @@
                                 <rect key="frame" x="16" y="270" width="343" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="DYH-Rr-7gP"/>
-                                    <constraint firstAttribute="width" constant="343" id="S8v-zF-0jK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Active">
@@ -342,7 +335,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoe-ab-t7L">
                                 <rect key="frame" x="16" y="333" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="HHC-WV-oHv"/>
                                     <constraint firstAttribute="height" constant="55" id="g0X-kt-Uvi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -357,7 +349,6 @@
                                 <rect key="frame" x="132" y="400" width="112" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="5RD-Qr-4v0"/>
                                     <constraint firstAttribute="height" constant="45" id="hG1-R2-rPB"/>
                                 </constraints>
                                 <state key="normal" title="Continue">
@@ -443,7 +434,6 @@
                                 <rect key="frame" x="46" y="145" width="283" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Kcs-16-G0u"/>
-                                    <constraint firstAttribute="width" constant="283" id="Wsa-Zq-NA5"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Male"/>
@@ -462,7 +452,6 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ByY-7Z-HA3"/>
-                                    <constraint firstAttribute="width" constant="112" id="eAd-3g-xIT"/>
                                 </constraints>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
@@ -474,7 +463,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iu2-NL-HgC">
                                 <rect key="frame" x="16" y="259" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="4nN-Yn-lsB"/>
                                     <constraint firstAttribute="height" constant="55" id="4tA-vs-1lt"/>
                                 </constraints>
                                 <nil key="textColor"/>
@@ -564,7 +552,6 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="996-eV-Jh6"/>
-                                    <constraint firstAttribute="width" constant="112" id="MHJ-cA-gEz"/>
                                 </constraints>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
@@ -576,9 +563,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uKg-Bz-w5d">
                                 <rect key="frame" x="16" y="137" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="4oM-OM-US7"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="7yE-yZ-3FY"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="F21-A0-r75"/>
                                     <constraint firstAttribute="height" constant="55" id="asV-fe-Cgc"/>
                                 </constraints>
                                 <nil key="textColor"/>
@@ -588,9 +572,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0G3-sf-osg">
                                 <rect key="frame" x="16" y="232" width="343" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="EuS-mh-svt"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="Ys7-Xt-ZWQ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="eB5-xv-shP"/>
                                     <constraint firstAttribute="height" constant="55" id="giJ-40-ldp"/>
                                 </constraints>
                                 <nil key="textColor"/>
@@ -601,9 +582,6 @@
                                 <rect key="frame" x="16" y="327" width="343" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="MJf-Mc-h5q"/>
-                                    <constraint firstAttribute="width" constant="343" id="O26-mL-uS6"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="b9M-ct-maC"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="kye-YD-4x9"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -705,7 +683,6 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="5hW-Xa-bTY"/>
-                                    <constraint firstAttribute="width" constant="299" id="p0a-X5-G3F"/>
                                 </constraints>
                                 <state key="normal" title="Complete Sign Up">
                                     <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>

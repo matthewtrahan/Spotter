@@ -14,6 +14,8 @@ class MoreAboutYouViewController: UIViewController {
     @IBOutlet weak var birthdate: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
     var myDatePicker: UIDatePicker = UIDatePicker()
+    var goal: String?
+    var activity: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,22 @@ class MoreAboutYouViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let seg = segue.destination as! EvenMoreAboutYouViewController
+        
+        seg.goal = goal
+        seg.activity = activity
+        
+        // switch for the segmented controller
+        switch self.genderSegmentedControl.selectedSegmentIndex {
+            case 0: seg.gender = "Male"
+            case 1: seg.gender = "Female"
+            default: break
+        }
+        
+        seg.birthdate = birthdate.text
     }
     
     func buttonStyle() {

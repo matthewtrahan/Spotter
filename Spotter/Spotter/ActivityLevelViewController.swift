@@ -16,6 +16,7 @@ class ActivityLevelViewController: UIViewController {
     @IBOutlet weak var active: UIButton!
     @IBOutlet weak var extremelyActive: UIButton!
     @IBOutlet weak var invalidLabel: UILabel!
+    var goal: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,6 @@ class ActivityLevelViewController: UIViewController {
         somewhatActive.backgroundColor = .clear
         active.backgroundColor = .clear
         extremelyActive.backgroundColor = .clear
-        //AccountInformationViewController.activity = "notActive"
     }
     
     @IBAction func somewhatActiveSelected(_ sender: Any) {
@@ -70,7 +70,6 @@ class ActivityLevelViewController: UIViewController {
         somewhatActive.backgroundColor = UIColor.lightGray
         active.backgroundColor = .clear
         extremelyActive.backgroundColor = .clear
-        //AccountInformationViewController.activity = "somewhatActive"
     }
 
     @IBAction func activeSelected(_ sender: Any) {
@@ -78,7 +77,6 @@ class ActivityLevelViewController: UIViewController {
         somewhatActive.backgroundColor = .clear
         active.backgroundColor = UIColor.lightGray
         extremelyActive.backgroundColor = .clear
-        //AccountInformationViewController.activity = "active"
     }
     
     @IBAction func extremelyActiveSelected(_ sender: Any) {
@@ -86,7 +84,21 @@ class ActivityLevelViewController: UIViewController {
         somewhatActive.backgroundColor = .clear
         active.backgroundColor = .clear
         extremelyActive.backgroundColor = UIColor.lightGray
-        //AccountInformationViewController.activity = "extremelyActive"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let seg = segue.destination as! MoreAboutYouViewController
+        if notActive.backgroundColor == UIColor.lightGray {
+            seg.activity = "notActive"
+        } else if somewhatActive.backgroundColor == UIColor.lightGray {
+            seg.activity = "somewhatActive"
+        } else if active.backgroundColor == UIColor.lightGray {
+            seg.activity = "active"
+        } else {
+            seg.activity = "extremelyActive"
+        }
+        
+        seg.goal = goal
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {

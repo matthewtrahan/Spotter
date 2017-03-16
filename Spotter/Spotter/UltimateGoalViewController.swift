@@ -55,21 +55,29 @@ class UltimateGoalViewController: UIViewController {
         loseWeight.backgroundColor = UIColor.lightGray
         maintainWeight.backgroundColor = .clear
         buildMuscle.backgroundColor = .clear
-        //AccountInformationViewController.goal = "loseWeight"
     }
     
     @IBAction func maintainWeightSelected(_ sender: Any) {
         loseWeight.backgroundColor = .clear
         maintainWeight.backgroundColor = UIColor.lightGray
         buildMuscle.backgroundColor = .clear
-        //AccountInformationViewController.goal = "maintainWeight"
     }
     
     @IBAction func buildMuscleSelected(_ sender: Any) {
         loseWeight.backgroundColor = .clear
         maintainWeight.backgroundColor = .clear
         buildMuscle.backgroundColor = UIColor.lightGray
-        //AccountInformationViewController.goal = "buildMuscle"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let seg = segue.destination as! ActivityLevelViewController
+        if loseWeight.backgroundColor == UIColor.lightGray {
+            seg.goal = "loseWeight"
+        } else if maintainWeight.backgroundColor == UIColor.lightGray {
+            seg.goal = "maintainWeight"
+        } else {
+            seg.goal = "buildMuscle"
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {

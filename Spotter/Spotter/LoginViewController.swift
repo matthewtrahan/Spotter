@@ -42,9 +42,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return false
             } else {
                 // check for valid username and password
-                let loginCheck = checkValidUsernameAndPassword()
+                let loginCheck = checkValidUsernameAndPassword(username: self.username.text!, password: self.password.text!)
                 if !loginCheck {
-                    invalidLabel.text = "Username or password do not match."
+                    if invalidLabel.text != "Username does not exist." {
+                        invalidLabel.text = "Username or password do not match."
+                    }
                     return false
                 } else {
                     // log in
@@ -55,7 +57,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func checkValidUsernameAndPassword() -> Bool {
+    func checkValidUsernameAndPassword(username: String, password: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        let predicate = NSPredicate (format:"username = %@", username)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = predicate
+        do {
+            let fetchResult = try managedObjectContext.fetch(fetchRequest)
+            if fetchResult.count > 0 {
+                let objectEntity: User = fetchResult.first as! User
+                if objectEntity.username == username && objectEntity.password == password {
+                    // they match with the Core Data
+                    return true
+                }
+                else {
+                    // wrong username/password combination
+                    return false
+                }
+            }
+            else {
+                return false
+            }
+        }
+        
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
         return true
     }
     

@@ -16,6 +16,10 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
     @IBOutlet weak var invalidLabel: UILabel!
     var heightPicker: UIPickerView = UIPickerView()
     var heightPickerData: [[String]] = [[String]]()
+    var goal: String?
+    var activity: String?
+    var gender: String?
+    var birthdate: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +101,6 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
     func doneClick() {
         let feetRow = heightPicker.selectedRow(inComponent: 0)
         let inchesRow = heightPicker.selectedRow(inComponent: 1)
-        print(feetRow)
-        print(inchesRow)
-        print(heightPickerData[0][feetRow])
         height.text = "\(heightPickerData[0][feetRow]) \(heightPickerData[1][inchesRow])"
         height.resignFirstResponder()
         // AccountInformationViewController.height = height.text
@@ -107,6 +108,19 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
     
     func cancelClick() {
         height.resignFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let seg = segue.destination as! AccountInformationViewController
+        
+        seg.goal = goal
+        seg.activity = activity
+        seg.gender = gender
+        seg.birthdate = birthdate
+        
+        seg.height = height.text
+        seg.weight = Double(weight.text!)
+        seg.goalWeight = Double(goalWeight.text!)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any!) -> Bool {
