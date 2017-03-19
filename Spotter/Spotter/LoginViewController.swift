@@ -7,7 +7,7 @@
 //  provides an option to sign up, login, or change their
 //  password and proceeds with a login when given valid creds.
 //
-//  Created by Matthew Trahan on 3/4/17.
+//  Created by Matthew Trahanvar 3/4/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
 
@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return false
             } else {
                 // check for valid username and password
-                let loginCheck = checkValidUsernameAndPassword(username: self.username.text!, password: self.password.text!)
+                let loginCheck = checkValidUsernameAndPassword(uname: self.username.text!, password: self.password.text!)
                 if !loginCheck {
                     // the user input an invalid username/password combination
                     invalidLabel.text = "Username or password is incorrect."
@@ -66,11 +66,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    // save the username to NSUserDefaults so we know which user is logged in
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create UserDefaults
+        let defaults = UserDefaults.standard
+        
+        // Save String value to UserDefaults so we can retrieve it later
+        defaults.set(username.text!, forKey: "username")
+    }
+    
     // check if the username exists and that the username/password match
-    func checkValidUsernameAndPassword(username: String, password: String) -> Bool {
+    func checkValidUsernameAndPassword(uname: String, password: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.persistentContainer.viewContext
-        let predicate = NSPredicate (format:"username = %@", username)
+        let predicate = NSPredicate (format: "username = %@", uname)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         fetchRequest.predicate = predicate
         
@@ -78,7 +87,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let fetchResult = try managedObjectContext.fetch(fetchRequest)
             if fetchResult.count > 0 {
                 let objectEntity: User = fetchResult.first as! User
-                if objectEntity.username == username && objectEntity.password == password {
+                if objectEntity.username == uname && objectEntity.password == password {
                     // they match with the Core Data
                     return true
                 } else {
@@ -86,13 +95,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     return false
                 }
             } else {
+                // invalid username
                 return false
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        
-        return true
+        return false
     }
     
     // this function dismisses the keyboard when returning

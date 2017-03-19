@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class TodaysWorkoutTableVC: UITableViewController {
 
     let dayOfWeek = Date().dayNumberOfWeek()
+    let workoutData = WorkoutPlans()
+    var user: String?
+    var userWorkout: [(String, Int, Int)]?
+    var userTitles: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let defaults = UserDefaults.standard
+        
+        // Get the username from UserDefaults
+        self.user = defaults.value(forKey: "username") as? String
+        
+        userWorkout = self.getUsersPlan(user: user!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,12 +41,11 @@ class TodaysWorkoutTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return WorkoutPlans.sharedInstance.loseWeightBackBiceps.count
+        return userWorkout!.count + 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return WorkoutPlans.sharedInstance.loseWeightTitles[dayOfWeek!]
+        return userTitles?[dayOfWeek!]
     }
     
     // style section header
@@ -48,14 +53,9 @@ class TodaysWorkoutTableVC: UITableViewController {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textAlignment = .center
     }
-    
-    // adjust height of section header
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80.0
-    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index: Int = indexPath.row
+        var index: Int = indexPath.row
         
         // we want the first cell to be like a header so use the first prototype cell from sb
         if index == 0 {
@@ -66,12 +66,42 @@ class TodaysWorkoutTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! WorkoutTableViewCell
         
         // Configure the cell...
-        
-        cell.exercise.text = WorkoutPlans.sharedInstance.loseWeightBackBiceps[index].0
-        cell.reps.text = String(WorkoutPlans.sharedInstance.loseWeightBackBiceps[index].1)
-        cell.sets.text = String(WorkoutPlans.sharedInstance.loseWeightBackBiceps[index].2)
+        index -= 1
+        cell.exercise.text = userWorkout?[index].0
+        cell.reps.text = String(describing: userWorkout![index].1)
+        cell.sets.text = String(describing: userWorkout![index].2)
         
         return cell
+    }
+    
+    func getUsersPlan(user: String) -> [(String, Int, Int)] {
+        // get the goal from core data
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        let predicate = NSPredicate (format:"username = %@", user)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = predicate
+        do {
+            let fetchResult = try managedObjectContext.fetch(fetchRequest)
+            if fetchResult.count > 0 {
+                // fetch the user's goal
+                let objectEntity: User = fetchResult.first as! User
+                let userGoal = objectEntity.ultimateGoal
+                if userGoal == "loseWeight" {
+                    userTitles = workoutData.loseWeightTitles
+                    return workoutData.loseWeightBackBiceps
+                } else if userGoal == "maintainWeight" {
+                    userTitles = workoutData.maintainWeightTitles
+                    return workoutData.maintainWeightBackBiceps
+                } else {
+                    userTitles = workoutData.buildMuscleTitles
+                    return workoutData.buildMuscleBackBiceps
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        return [("error", 0, 0)]
     }
  
 }

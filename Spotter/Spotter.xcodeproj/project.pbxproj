@@ -11,6 +11,7 @@
 		7164A51C1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51B1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift */; };
 		7164A51E1E7D7A780064E73B /* WorkoutPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */; };
 		7164A5201E7D8AC30064E73B /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */; };
+		7164A5231E7DC9A80064E73B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A5221E7DC9A80064E73B /* TabBarViewController.swift */; };
 		71B487F01E65C5CF00338836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B487EF1E65C5CF00338836 /* AppDelegate.swift */; };
 		71B487F21E65C5CF00338836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B487F11E65C5CF00338836 /* ViewController.swift */; };
 		71B487F51E65C5CF00338836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B487F31E65C5CF00338836 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		7164A51B1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysWorkoutTableVC.swift; sourceTree = "<group>"; };
 		7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlans.swift; sourceTree = "<group>"; };
 		7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		7164A5221E7DC9A80064E73B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		71B487EC1E65C5CE00338836 /* Spotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B487EF1E65C5CF00338836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71B487F11E65C5CF00338836 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				7164A51B1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift */,
+				7164A5221E7DC9A80064E73B /* TabBarViewController.swift */,
 				7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */,
 				7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */,
 			);
@@ -190,6 +193,7 @@
 				7164A51C1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift in Sources */,
 				71B4880D1E6BC65700338836 /* MoreAboutYouViewController.swift in Sources */,
 				71B488111E6BC66E00338836 /* AccountInformationViewController.swift in Sources */,
+				7164A5231E7DC9A80064E73B /* TabBarViewController.swift in Sources */,
 				71B487F21E65C5CF00338836 /* ViewController.swift in Sources */,
 				71B488081E6BC61F00338836 /* UltimateGoalViewController.swift in Sources */,
 				71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */,

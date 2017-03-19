@@ -60,7 +60,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kET-pD-gf7" kind="presentation" id="rxE-ec-jzi"/>
+                                    <segue destination="kET-pD-gf7" kind="presentation" identifier="login" id="rxE-ec-jzi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-JI-kZS">
@@ -288,7 +288,7 @@
             </objects>
             <point key="canvasLocation" x="2977" y="1205"/>
         </scene>
-        <!--Today's Workout-->
+        <!--Todays Workout TableVC-->
         <scene sceneID="nB1-p6-4a4">
             <objects>
                 <tableViewController id="yyQ-BI-sl5" customClass="TodaysWorkoutTableVC" customModule="Spotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -403,23 +403,23 @@
                             <outlet property="delegate" destination="yyQ-BI-sl5" id="D81-Rv-eGI"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Today's Workout" image="dumbbell-icon" id="lIl-Rq-5Fy"/>
+                    <navigationItem key="navigationItem" id="xCI-Rj-dEc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VE-ok-mnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2976.8000000000002" y="-256.82158920539734"/>
+            <point key="canvasLocation" x="3916" y="-256.82158920539734"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="2yH-KH-Rmr">
             <objects>
-                <tabBarController id="kET-pD-gf7" sceneMemberID="viewController">
+                <tabBarController id="kET-pD-gf7" customClass="TabBarViewController" customModule="Spotter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ncs-HD-SGN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yyQ-BI-sl5" kind="relationship" relationship="viewControllers" id="0gd-Sy-mBd"/>
+                        <segue destination="mi7-nN-uAP" kind="relationship" relationship="viewControllers" id="0gd-Sy-mBd"/>
                         <segue destination="Wcr-il-N0Z" kind="relationship" relationship="viewControllers" id="JVu-ft-BZG"/>
                         <segue destination="dwM-et-i0V" kind="relationship" relationship="viewControllers" id="V4O-7P-onH"/>
                     </connections>
@@ -1055,6 +1055,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTV-00-w98" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="139"/>
+        </scene>
+        <!--Today's Workout-->
+        <scene sceneID="MwC-LF-F7c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mi7-nN-uAP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today's Workout" image="dumbbell-icon" id="lIl-Rq-5Fy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZL4-ZE-Wgf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yyQ-BI-sl5" kind="relationship" relationship="rootViewController" id="cmc-kV-cMe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0pp-hs-L7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976.8000000000002" y="-256.82158920539734"/>
         </scene>
     </scenes>
     <resources>
