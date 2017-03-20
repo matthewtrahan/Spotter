@@ -288,7 +288,7 @@
             </objects>
             <point key="canvasLocation" x="2977" y="1205"/>
         </scene>
-        <!--Todays Workout TableVC-->
+        <!--Today's Workout-->
         <scene sceneID="nB1-p6-4a4">
             <objects>
                 <tableViewController id="yyQ-BI-sl5" customClass="TodaysWorkoutTableVC" customModule="Spotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -403,7 +403,7 @@
                             <outlet property="delegate" destination="yyQ-BI-sl5" id="D81-Rv-eGI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xCI-Rj-dEc"/>
+                    <navigationItem key="navigationItem" title="Today's Workout" id="xCI-Rj-dEc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VE-ok-mnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

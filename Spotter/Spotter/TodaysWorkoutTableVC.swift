@@ -89,13 +89,13 @@ class TodaysWorkoutTableVC: UITableViewController {
                 let userGoal = objectEntity.ultimateGoal
                 if userGoal == "loseWeight" {
                     userTitles = workoutData.loseWeightTitles
-                    return workoutData.loseWeightBackBiceps
+                    return workoutData.loseWeightWorkouts[dayOfWeek!]
                 } else if userGoal == "maintainWeight" {
                     userTitles = workoutData.maintainWeightTitles
-                    return workoutData.maintainWeightBackBiceps
+                    return workoutData.maintainWeightWorkouts[dayOfWeek!]
                 } else {
                     userTitles = workoutData.buildMuscleTitles
-                    return workoutData.buildMuscleBackBiceps
+                    return workoutData.buildMuscleWorkouts[dayOfWeek!]
                 }
             }
         } catch let error as NSError {
