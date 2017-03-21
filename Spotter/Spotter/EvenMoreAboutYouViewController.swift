@@ -142,7 +142,12 @@ class EvenMoreAboutYouViewController: UIViewController, UITextFieldDelegate, UIP
             if (height.text!.isEmpty) || (weight.text!.isEmpty) || (goalWeight.text!.isEmpty) {
                 invalidLabel.text = "Please fill in all fields."
                 return false
-            } else {
+            }
+            else if (goal! == "buildMuscle" && goalWeight.text! <= weight.text!) || (goal! == "loseWeight" && goalWeight.text! >= weight.text!) {
+                invalidLabel.text = "Workout goal does not match weight goal."
+                return false
+            }
+            else {
                 invalidLabel.text = ""
                 return true
             }

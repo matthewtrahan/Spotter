@@ -268,23 +268,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87S-Rf-Kca">
-                                <rect key="frame" x="163" y="185" width="48" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87S-Rf-Kca">
+                                <rect key="frame" x="163" y="185" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <segue destination="96d-Ns-6vQ" kind="show" id="Lzg-1l-7jH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="More coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLo-Dx-wBm">
-                                <rect key="frame" x="90" y="266" width="195" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLo-Dx-wBm">
+                                <rect key="frame" x="90" y="233" width="195" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QLo-Dx-wBm" secondAttribute="trailing" constant="74" id="RMz-zq-BQZ"/>
+                            <constraint firstItem="87S-Rf-Kca" firstAttribute="top" secondItem="xh0-tm-ldt" secondAttribute="bottom" constant="165" id="SE7-Nl-7Qt"/>
+                            <constraint firstItem="QLo-Dx-wBm" firstAttribute="top" secondItem="87S-Rf-Kca" secondAttribute="bottom" constant="18" id="Ujl-nn-g7J"/>
+                            <constraint firstItem="87S-Rf-Kca" firstAttribute="centerX" secondItem="v8z-Zi-0BW" secondAttribute="centerX" id="Uzi-iI-8it"/>
+                            <constraint firstItem="QLo-Dx-wBm" firstAttribute="leading" secondItem="v8z-Zi-0BW" secondAttribute="leadingMargin" constant="74" id="dtv-Ev-M12"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings-50" id="VH4-Lz-62E"/>
                 </viewController>
@@ -472,7 +477,7 @@
                                     <constraint firstAttribute="height" constant="55" id="zn3-Wm-aXR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Maintain Weight">
+                                <state key="normal" title="Build Foundation/Strength">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -1087,6 +1092,6 @@
         <image name="graph-icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lzg-1l-7jH"/>
+        <segue reference="WMe-tc-EYa"/>
     </inferredMetricsTieBreakers>
 </document>

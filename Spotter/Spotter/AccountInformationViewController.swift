@@ -88,6 +88,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
             userUsername = username.text
             saveUser(username: userUsername!, password: userPassword!, email: userEmail!, goal: goal!, activityLevel: activity!, gender: gender!, birthdate: birthdate!, height: height!, weight: weight!, goalWeight: goalWeight!)
             
+            invalidLabel.text = ""
             invalidLabel2.text = "Registration successful!"
             invalidLabel2.textColor = UIColor.green
             

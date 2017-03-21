@@ -36,6 +36,9 @@ class MoreAboutYouViewController: UIViewController {
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         
+        // do not allow future birth dates
+        self.myDatePicker.maximumDate = Date()
+        
         invalidLabel.text = ""
     }
 
