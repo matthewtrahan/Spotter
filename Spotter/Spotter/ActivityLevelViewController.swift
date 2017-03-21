@@ -10,7 +10,6 @@
 
 import UIKit
 
-
 class ActivityLevelViewController: UIViewController {
 
     // storyboard elements

@@ -268,25 +268,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeO-NH-oSu">
-                                <rect key="frame" x="16" y="100" width="343" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87S-Rf-Kca">
+                                <rect key="frame" x="163" y="185" width="48" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <segue destination="96d-Ns-6vQ" kind="show" id="Lzg-1l-7jH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="More coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLo-Dx-wBm">
+                                <rect key="frame" x="90" y="266" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MeO-NH-oSu" firstAttribute="leading" secondItem="v8z-Zi-0BW" secondAttribute="leadingMargin" id="0BV-gp-lTE"/>
-                            <constraint firstItem="MeO-NH-oSu" firstAttribute="top" secondItem="xh0-tm-ldt" secondAttribute="bottom" constant="80" id="FeB-al-SId"/>
-                            <constraint firstItem="MeO-NH-oSu" firstAttribute="trailing" secondItem="v8z-Zi-0BW" secondAttribute="trailingMargin" id="dty-oz-fiR"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings-50" id="VH4-Lz-62E"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDS-jZ-5Kp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="1205"/>
+            <point key="canvasLocation" x="2976.8000000000002" y="1204.9475262368817"/>
         </scene>
         <!--Today's Workout-->
         <scene sceneID="nB1-p6-4a4">
@@ -1083,6 +1087,6 @@
         <image name="graph-icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WMe-tc-EYa"/>
+        <segue reference="Lzg-1l-7jH"/>
     </inferredMetricsTieBreakers>
 </document>

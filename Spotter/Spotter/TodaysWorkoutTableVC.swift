@@ -112,3 +112,12 @@ extension Date {
         return Calendar.current.dateComponents([.weekday], from: self).weekday! - 1
     }
 }
+
+//func loadYoutube(videoID videoID:String) {
+//    // create a custom youtubeURL with the video ID
+//    guard
+//        let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoID)")
+//        else { return }
+//    // load your web request
+//    wv.loadRequest( NSURLRequest(URL: youtubeURL) )
+//}
