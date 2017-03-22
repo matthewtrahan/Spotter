@@ -11,15 +11,15 @@ import CoreData
 
 class TodaysWorkoutTableVC: UITableViewController {
 
-    let dayOfWeek = Date().dayNumberOfWeek()
+    var dayOfWeek = Date().dayNumberOfWeek()
     let workoutData = WorkoutPlans()
     var user: String?
-    var userWorkout: [(String, Int, Int)]?
+    var userWorkout: [(String, String, String)]?
     var userTitles: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let defaults = UserDefaults.standard
         
         // Get the username from UserDefaults
@@ -74,7 +74,7 @@ class TodaysWorkoutTableVC: UITableViewController {
         return cell
     }
     
-    func getUsersPlan(user: String) -> [(String, Int, Int)] {
+    func getUsersPlan(user: String) -> [(String, String, String)] {
         // get the goal from core data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.persistentContainer.viewContext
@@ -101,7 +101,7 @@ class TodaysWorkoutTableVC: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        return [("error", 0, 0)]
+        return [("error", "", "")]
     }
  
 }
