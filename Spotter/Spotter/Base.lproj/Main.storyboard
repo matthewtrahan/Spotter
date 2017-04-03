@@ -404,6 +404,7 @@
                                     <outlet property="exercise" destination="9OS-y1-eFM" id="n0E-kl-KPU"/>
                                     <outlet property="reps" destination="6kb-WT-yJA" id="adv-WD-6wt"/>
                                     <outlet property="sets" destination="MAj-HR-CKc" id="tqh-p7-PRN"/>
+                                    <segue destination="cON-Mg-2dc" kind="show" id="hnN-7y-NEb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -417,6 +418,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VE-ok-mnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3916" y="-256.82158920539734"/>
+        </scene>
+        <!--Exercise Details View Controller-->
+        <scene sceneID="I6m-TQ-0xo">
+            <objects>
+                <viewController id="cON-Mg-2dc" customClass="ExerciseDetailsViewController" customModule="Spotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cMR-gb-Ebz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bne-Ma-5VW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AaJ-xw-Z7j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;description&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-bk-McF">
+                                <rect key="frame" x="16" y="323" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FsL-aO-QDG">
+                                <rect key="frame" x="16" y="72" width="343" height="243"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="yVY-Gd-7eE"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Hj-bk-McF" firstAttribute="leading" secondItem="AaJ-xw-Z7j" secondAttribute="leadingMargin" id="0Dn-4K-ws9"/>
+                            <constraint firstItem="FsL-aO-QDG" firstAttribute="trailing" secondItem="AaJ-xw-Z7j" secondAttribute="trailingMargin" id="agD-Y1-yWU"/>
+                            <constraint firstItem="FsL-aO-QDG" firstAttribute="leading" secondItem="AaJ-xw-Z7j" secondAttribute="leadingMargin" id="cjf-bb-adA"/>
+                            <constraint firstItem="1Hj-bk-McF" firstAttribute="trailing" secondItem="AaJ-xw-Z7j" secondAttribute="trailingMargin" id="hVy-TJ-OPC"/>
+                            <constraint firstItem="1Hj-bk-McF" firstAttribute="top" secondItem="FsL-aO-QDG" secondAttribute="bottom" constant="8" id="tTm-gc-zII"/>
+                            <constraint firstItem="FsL-aO-QDG" firstAttribute="top" secondItem="cMR-gb-Ebz" secondAttribute="bottom" constant="8" id="wYh-WX-t32"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseDesc" destination="1Hj-bk-McF" id="8gH-X6-BTt"/>
+                        <outlet property="wv" destination="FsL-aO-QDG" id="GkS-09-BgD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQf-Bx-p2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4741.6000000000004" y="-257.72113943028489"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="2yH-KH-Rmr">

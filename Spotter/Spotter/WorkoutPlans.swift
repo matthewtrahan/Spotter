@@ -9,12 +9,62 @@
 import Foundation
 
 class WorkoutPlans {
-    let loseWeightTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
-    let loseWeightWorkouts: [[(String, String, String)]] = [[("Deadlift", "12", "3"), ("Lat Pulldown", "10-12", "3"), ("T-Bar Rows", "10-12" ,"3"), ("Bicep Curls", "15", "3"), ("Bicep Burnouts", "TF" , "3")], [("Squat", "12", "3"), ("Leg Press", "15", "3"), ("Leg Extensions", "12", "3"), ("Leg Curls", "12", "3"), ("Calf Raises", "20", "3")], [("Rest", "", "")], [("Bench Press", "12", "3"), ("Chest Flys", "12", "3"), ("Tricep Extensions", "15", "3"), ("Tricep Kickbacks", "12", "3"), ("Dips", "TF", "3")], [("Overhead Press", "12", "3"), ("Lateral Raises", "15", "3"), ("Rear Delt Raises", "15", "3"), ("Suicide Raises", "15", "3"), ("Cable Lat Raises", "TF", "3")], [("Rest", "", "")], [("Sprints", "TF", "3"), ("Crunches", "20-25", "3"), ("Leg Raises", "20-25", "3"), ("Toe Touches", "20-25", "3"), ("Sit-Ups", "20-25", "3")]]
+    let deadlift: Exercise = Exercise(name: "Deadlift", description: "description here", videoLink: "a5zhnubunoE")
+    let squat: Exercise = Exercise(name: "Squat", description: "description here", videoLink: "tVB1q8zkP3o")
+    let benchPress: Exercise = Exercise(name: "Bench Press", description: "description here", videoLink: "RsobeWfbBcY")
+    let overheadPress: Exercise = Exercise(name: "Overhead Press", description: "description here", videoLink: "0JfYxMRsUCQ")
+    let sprints: Exercise = Exercise(name: "Sprints", description: "description here", videoLink: "5cnVAgk3G7o")
     
-    let maintainWeightTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
-    let maintainWeightWorkouts: [[(String, String, String)]] = [[("Deadlift", "8", "3"), ("Lat Pulldown", "6-8", "3"), ("T-Bar Rows", "6-8" ,"3"), ("Bicep Curls", "8-10", "3"), ("Bicep Burnouts", "TF" , "3")], [("Squat", "6-8", "3"), ("Leg Press", "6-8", "3"), ("Leg Extensions", "12", "3"), ("Leg Curl", "12", "3"), ("Calf Raises", "20", "3")], [("Rest", "", "")], [("Bench Press", "6-8", "3"), ("Chest Flys", "12", "3"), ("Tricep Extensions", "10", "3"), ("Tricep Kickbacks", "12", "3"), ("Dips", "TF", "3")], [("Overhead Press", "6-8", "3"), ("Lateral Raises", "10", "3"), ("Rear Delt Raises", "10", "3"), ("Suicide Raises", "10", "3"), ("Cable Lat Raises", "TF", "3")], [("Rest", "", "")], [("Sprints", "TF", "3"), ("Crunches", "20-25", "3"), ("Leg Raises", "20-25", "3"), ("Toe Touches", "20-25", "3"), ("Sit-Ups", "20-25", "3")]]
+    let restToDo: Exercise = Exercise(name: "todo name", description: "todo desc", videoLink: "UMQTQhdizxI")
     
-    let buildMuscleTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
-    let buildMuscleWorkouts: [[(String, String, String)]] = [[("Deadlift", "5", "5"), ("Lat Pulldown", "6-8", "3"), ("T-Bar Rows", "5" ,"5"), ("Bicep Curls", "6-8", "3"), ("Bicep Burnouts", "TF" , "3")], [("Squat", "5", "5"), ("Leg Press", "6-8", "3"), ("Leg Extensions", "12", "3"), ("Leg Curl", "12", "3"), ("Calf Raises", "20", "3")], [("Rest", "", "")], [("Bench Press", "5", "5"), ("Chest Flys", "12", "3"), ("Tricep Extensions", "6-8", "3"), ("Tricep Kickbacks", "12", "3"), ("Dips", "TF", "3")], [("Overhead Press", "5", "5"), ("Lateral Raises", "8", "3"), ("Rear Delt Raises", "8", "3"), ("Suicide Raises", "8", "3"), ("Cable Lat Raises", "TF", "3")], [("Rest", "", "")], [("Sprints", "TF", "3"), ("Crunches", "20-25", "3"), ("Leg Raises", "20-25", "3"), ("Toe Touches", "20-25", "3"), ("Sit-Ups", "20-25", "3")]]
+    func getWorkoutTitles(goal: String) -> [String] {
+        let loseWeightTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
+        let maintainWeightTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
+        let buildMuscleTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
+        
+        if goal == "loseWeight" {
+            return loseWeightTitles
+        } else if goal == "maintainWeight" {
+            return maintainWeightTitles
+        } else {
+            return buildMuscleTitles
+        }
+    }
+    
+    func getWorkoutPlans(goal: String) -> [[(String, String, String, Exercise)]] {
+        let loseWeightWorkouts: [[(String, String, String, Exercise)]] = [
+            [(deadlift.name, "12", "3", deadlift), ("Lat Pulldown", "10-12", "3", restToDo), ("T-Bar Rows", "10-12" ,"3", restToDo), ("Bicep Curls", "15", "3", restToDo), ("Bicep Burnouts", "TF" , "3", restToDo)],
+            [(squat.name, "12", "3", squat), ("Leg Press", "15", "3", restToDo), ("Leg Extensions", "12", "3", restToDo), ("Leg Curls", "12", "3", restToDo), ("Calf Raises", "20", "3", restToDo)],
+            [("Rest", "", "", restToDo)],
+            [(benchPress.name, "12", "3", benchPress), ("Chest Flys", "12", "3", restToDo), ("Tricep Extensions", "15", "3", restToDo), ("Tricep Kickbacks", "12", "3", restToDo), ("Dips", "TF", "3", restToDo)],
+            [(overheadPress.name, "12", "3", overheadPress), ("Lateral Raises", "15", "3", restToDo), ("Rear Delt Raises", "15", "3", restToDo), ("Suicide Raises", "15", "3", restToDo), ("Cable Lat Raises", "TF", "3", restToDo)], [("Rest", "", "", restToDo)],
+            [(sprints.name, "TF", "3", sprints), ("Crunches", "20-25", "3", restToDo), ("Leg Raises", "20-25", "3", restToDo), ("Toe Touches", "20-25", "3", restToDo), ("Sit-Ups", "20-25", "3", restToDo)]]
+
+        let maintainWeightWorkouts: [[(String, String, String, Exercise)]] = [
+            [(deadlift.name, "8", "3", deadlift), ("Lat Pulldown", "6-8", "3",restToDo), ("T-Bar Rows", "6-8" ,"3",restToDo), ("Bicep Curls", "8-10", "3", restToDo), ("Bicep Burnouts", "TF" , "3", restToDo)],
+            [(squat.name, "6-8", "3", squat), ("Leg Press", "6-8", "3", restToDo), ("Leg Extensions", "12", "3", restToDo), ("Leg Curl", "12", "3", restToDo), ("Calf Raises", "20", "3", restToDo)],
+            [("Rest", "", "", restToDo)],
+            [(benchPress.name, "6-8", "3", benchPress), ("Chest Flys", "12", "3", restToDo), ("Tricep Extensions", "10", "3", restToDo), ("Tricep Kickbacks", "12", "3", restToDo), ("Dips", "TF", "3", restToDo)],
+            [(overheadPress.name, "6-8", "3", overheadPress), ("Lateral Raises", "10", "3", restToDo), ("Rear Delt Raises", "10", "3", restToDo), ("Suicide Raises", "10", "3", restToDo), ("Cable Lat Raises", "TF", "3", restToDo)],
+            [("Rest", "", "",restToDo)],
+            [(sprints.name, "TF", "3", sprints), ("Crunches", "20-25", "3", restToDo), ("Leg Raises", "20-25", "3", restToDo), ("Toe Touches", "20-25", "3", restToDo), ("Sit-Ups", "20-25", "3", restToDo)]]
+        
+        let buildMuscleWorkouts: [[(String, String, String, Exercise)]] = [
+            [(deadlift.name, "5", "5", deadlift), ("Lat Pulldown", "6-8", "3", restToDo), ("T-Bar Rows", "5" ,"5", restToDo), ("Bicep Curls", "6-8", "3", restToDo), ("Bicep Burnouts", "TF" , "3", restToDo)],
+            [(squat.name, "5", "5", squat), ("Leg Press", "6-8", "3", restToDo), ("Leg Extensions", "12", "3", restToDo), ("Leg Curl", "12", "3", restToDo), ("Calf Raises", "20", "3", restToDo)],
+            [("Rest", "", "", restToDo)],
+            [(benchPress.name, "5", "5", benchPress), ("Chest Flys", "12", "3", restToDo), ("Tricep Extensions", "6-8", "3", restToDo), ("Tricep Kickbacks", "12", "3", restToDo), ("Dips", "TF", "3", restToDo)],
+            [(overheadPress.name, "5", "5", overheadPress), ("Lateral Raises", "8", "3", restToDo), ("Rear Delt Raises", "8", "3", restToDo), ("Suicide Raises", "8", "3", restToDo), ("Cable Lat Raises", "TF", "3", restToDo)],
+            [("Rest", "", "", restToDo)],
+            [(sprints.name, "TF", "3", sprints), ("Crunches", "20-25", "3", restToDo), ("Leg Raises", "20-25", "3", restToDo), ("Toe Touches", "20-25", "3", restToDo), ("Sit-Ups", "20-25", "3", restToDo)]]
+        
+        if goal == "loseWeight" {
+            return loseWeightWorkouts
+        } else if goal == "maintainWeight" {
+            return maintainWeightWorkouts
+        } else {
+            return buildMuscleWorkouts
+        }
+    }
+    
 }

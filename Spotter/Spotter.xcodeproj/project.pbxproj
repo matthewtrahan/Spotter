@@ -24,6 +24,8 @@
 		71B4880F1E6BC66100338836 /* EvenMoreAboutYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B4880E1E6BC66100338836 /* EvenMoreAboutYouViewController.swift */; };
 		71B488111E6BC66E00338836 /* AccountInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B488101E6BC66E00338836 /* AccountInformationViewController.swift */; };
 		71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */; };
+		71C00AD61E92CD8A00CDBCE3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AD51E92CD8A00CDBCE3 /* Exercise.swift */; };
+		71C00AD81E92D61200CDBCE3 /* ExerciseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AD71E92D61200CDBCE3 /* ExerciseDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		71B4880E1E6BC66100338836 /* EvenMoreAboutYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvenMoreAboutYouViewController.swift; sourceTree = "<group>"; };
 		71B488101E6BC66E00338836 /* AccountInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInformationViewController.swift; sourceTree = "<group>"; };
 		71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		71C00AD51E92CD8A00CDBCE3 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		71C00AD71E92D61200CDBCE3 /* ExerciseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				7164A5221E7DC9A80064E73B /* TabBarViewController.swift */,
 				7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */,
 				7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */,
+				71C00AD71E92D61200CDBCE3 /* ExerciseDetailsViewController.swift */,
 			);
 			name = "Today's Workout";
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			children = (
 				71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */,
 				71B488051E6BC5F300338836 /* LoginViewController.swift */,
+				71C00AD51E92CD8A00CDBCE3 /* Exercise.swift */,
 				7164A5211E7D8AD10064E73B /* Today's Workout */,
 				71B488091E6BC62500338836 /* Sign Up */,
 				71B487EF1E65C5CF00338836 /* AppDelegate.swift */,
@@ -192,8 +198,10 @@
 				71B4880B1E6BC64600338836 /* ActivityLevelViewController.swift in Sources */,
 				7164A51C1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift in Sources */,
 				71B4880D1E6BC65700338836 /* MoreAboutYouViewController.swift in Sources */,
+				71C00AD81E92D61200CDBCE3 /* ExerciseDetailsViewController.swift in Sources */,
 				71B488111E6BC66E00338836 /* AccountInformationViewController.swift in Sources */,
 				7164A5231E7DC9A80064E73B /* TabBarViewController.swift in Sources */,
+				71C00AD61E92CD8A00CDBCE3 /* Exercise.swift in Sources */,
 				71B487F21E65C5CF00338836 /* ViewController.swift in Sources */,
 				71B488081E6BC61F00338836 /* UltimateGoalViewController.swift in Sources */,
 				71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */,

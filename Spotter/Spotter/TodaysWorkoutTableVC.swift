@@ -14,7 +14,7 @@ class TodaysWorkoutTableVC: UITableViewController {
     var dayOfWeek = Date().dayNumberOfWeek()
     let workoutData = WorkoutPlans()
     var user: String?
-    var userWorkout: [(String, String, String)]?
+    var userWorkout: [(String, String, String, Exercise)]?
     var userTitles: [String]?
 
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class TodaysWorkoutTableVC: UITableViewController {
         return cell
     }
     
-    func getUsersPlan(user: String) -> [(String, String, String)] {
+    func getUsersPlan(user: String) -> [(String, String, String, Exercise)] {
         // get the goal from core data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.persistentContainer.viewContext
@@ -88,20 +88,36 @@ class TodaysWorkoutTableVC: UITableViewController {
                 let objectEntity: User = fetchResult.first as! User
                 let userGoal = objectEntity.ultimateGoal
                 if userGoal == "loseWeight" {
-                    userTitles = workoutData.loseWeightTitles
-                    return workoutData.loseWeightWorkouts[dayOfWeek!]
+                    userTitles = workoutData.getWorkoutTitles(goal: userGoal!)
+                    var allWorkouts = workoutData.getWorkoutPlans(goal: userGoal!)
+                    return allWorkouts[dayOfWeek!]
                 } else if userGoal == "maintainWeight" {
-                    userTitles = workoutData.maintainWeightTitles
-                    return workoutData.maintainWeightWorkouts[dayOfWeek!]
+                    userTitles = workoutData.getWorkoutTitles(goal: userGoal!)
+                    var allWorkouts = workoutData.getWorkoutPlans(goal: userGoal!)
+                    return allWorkouts[dayOfWeek!]
                 } else {
-                    userTitles = workoutData.buildMuscleTitles
-                    return workoutData.buildMuscleWorkouts[dayOfWeek!]
+                    userTitles = workoutData.getWorkoutTitles(goal: userGoal!)
+                    var allWorkouts = workoutData.getWorkoutPlans(goal: userGoal!)
+                    return allWorkouts[dayOfWeek!]
                 }
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        return [("error", "", "")]
+        return [("error", "", "", Exercise(name: "error", description: "error", videoLink: "error"))]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
+        let seg = segue.destination as! ExerciseDetailsViewController
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let chosenExercise = userWorkout?[indexPath.row - 1].3
+            seg.selectedExercise = chosenExercise!
+            seg.selectedVideo = chosenExercise?.videoLink
+        }
     }
  
 }
@@ -112,12 +128,3 @@ extension Date {
         return Calendar.current.dateComponents([.weekday], from: self).weekday! - 1
     }
 }
-
-//func loadYoutube(videoID videoID:String) {
-//    // create a custom youtubeURL with the video ID
-//    guard
-//        let youtubeURL = NSURL(string: "https://www.youtube.com/embed/\(videoID)")
-//        else { return }
-//    // load your web request
-//    wv.loadRequest( NSURLRequest(URL: youtubeURL) )
-//}
