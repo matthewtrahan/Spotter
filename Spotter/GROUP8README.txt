@@ -1,16 +1,20 @@
 Implementation Contributions:
-Mickey Damani:
+Mickey Damani: 33%
+  Today's workout View Controller, Workout Plans
 
-Charlie Matar:
+Charlie Matar: 33%
+   Today's workout View Controller, Workout Plans
 
-Matthew Trahan:
+Matthew Trahan: 33%
+  Registration Screen, Settings Page, Forgot Password
 
 Grading Level:
-Mickey Damani:
-Charlie Matar:
-Matthew Trahan:
+Mickey Damani: 100%
+Charlie Matar: 100%
+Matthew Trahan: 100%
 
 Differences:
-<Explanations of any differences between what is submitted for this release and what the App Idea Paper deﬁned as being included in this release, and why that difference exists. If there are no deviances write None.>
+<Settings Page: Included Logout Button, Title Bar for Table View, Forgot Password: Can now enter username and email to recover password, Today's workout view controller: set up exercise name, sets, and reps>
+
 Special Instructions:
-<Any special instructions needed to make sure your app can be built and run. For example, if you use CocoaPods - the minimum version to use.>
+<None>
