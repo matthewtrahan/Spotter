@@ -97,7 +97,7 @@
 			children = (
 				71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */,
 				71B488051E6BC5F300338836 /* LoginViewController.swift */,
-				71C00ADB1E9661F800CDBCE3 /* SettingsViewController.swift */,
+				71C00ADF1E96A18D00CDBCE3 /* Settings */,
 				7164A5211E7D8AD10064E73B /* Today's Workout */,
 				71B488091E6BC62500338836 /* Sign Up */,
 				71B487EF1E65C5CF00338836 /* AppDelegate.swift */,
@@ -120,6 +120,14 @@
 				71B488101E6BC66E00338836 /* AccountInformationViewController.swift */,
 			);
 			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		71C00ADF1E96A18D00CDBCE3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				71C00ADB1E9661F800CDBCE3 /* SettingsViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
