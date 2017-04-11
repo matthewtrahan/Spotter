@@ -31,7 +31,7 @@ class WorkoutPlans {
     let lateralRaises: Exercise = Exercise(name: "Lateral Raises", description: "The lateral raise also works the muscles that support and stabilize your shoulders. It enhances your physique's appearance by creating size contrasts between your shoulders, waist and hips.", videoLink: "geenhiHju-o")
     let rearDeltRaises: Exercise = Exercise(name: "Rear Delt Raises", description: "This exercise is an isolation exercise that heavily works the posterior deltoid muscle.", videoLink: "CgUN-WxIm44")
     let frontRaises: Exercise = Exercise(name: "Front Raises", description: "Exercise that puts emphasis on the front delt.", videoLink: "-t7fuZ0KhDA")
-    let cableLatRaises: Exercise = Exercise(name: "Cable Lateral Raises", description: " An isolated shoulder exercise that targets the deltoids, while increasing stability in both the wrists and the core.", videoLink: "FGU9j1P5L-w")
+    let cableLatRaises: Exercise = Exercise(name: "Cable Lateral Raises", description: "An isolated shoulder exercise that targets the deltoids, while increasing stability in both the wrists and the core.", videoLink: "FGU9j1P5L-w")
     
     let sprints: Exercise = Exercise(name: "Sprints", description: "Sprint training is an excellent way to build muscle, burn fat and calories, and raise your metabolic rate", videoLink: "Oy3RWqqlMTg")
     let crunches: Exercise = Exercise(name: "Crunches", description: "The crunch is one of the most common abdominal exercises. It primarily works the rectus abdominis muscle and also works the obliques.", videoLink: "Xyd_fa5zoEU")
@@ -39,7 +39,7 @@ class WorkoutPlans {
     let toeTouches: Exercise = Exercise(name: "Toe Touches", description: " The toe touch works the middle and upper region of your ab muscles. Although it alone won't give you a six-pack, it does work the muscle responsible for that cut look.", videoLink: "y6Bv_0Shhc8")
     let sitUps: Exercise = Exercise(name: "Sit Ups", description: "The sit up is an exercise in which you lie on your back and use your stomach muscles to raise the top part of your body to a sitting position.", videoLink: "1fbU_MkV7NE")
     
-    let restToDo: Exercise = Exercise(name: "todo name", description: "todo desc", videoLink: "UMQTQhdizxI")
+    let rest: Exercise = Exercise(name: "Rest", description: "It is rest that makes you stronger, because it is the rest that allows the muscles that you have broken down to heal and recover. It is the rest that allows you to recover so you can be strong, and thereby handle the increased weight, and increased number of sets and reps needed to progress further.", videoLink: "")
     
     func getWorkoutTitles(goal: String) -> [String] {
         let loseWeightTitles: [String] = ["Back & Biceps", "Legs", "Rest", "Chest & Triceps", "Shoulders", "Rest", "Cardio & Abs"]
@@ -59,27 +59,28 @@ class WorkoutPlans {
         let loseWeightWorkouts: [[(String, String, String, Exercise)]] = [
             [(deadlift.name, "12", "3", deadlift), (latPulldown.name, "10-12", "3", latPulldown), (tBarRows.name, "10-12" ,"3", tBarRows), (bicepCurls.name, "15", "3", bicepCurls), (bicepBurnouts.name, "TF" , "3", bicepBurnouts)],
             [(squat.name, "12", "3", squat), (legPress.name, "15", "3", legPress), (legExtensions.name, "12", "3", legExtensions), (legCurls.name, "12", "3", legCurls), (calfRaises.name, "20", "3", calfRaises)],
-            [(restToDo.name, "", "", restToDo)],
+            [(rest.name, "", "", rest)],
             [(benchPress.name, "12", "3", benchPress), (chestFlys.name, "12", "3", chestFlys), (tricepExtensions.name, "15", "3", tricepExtensions), (tricepKickbacks.name, "12", "3", tricepKickbacks), (dips.name, "TF", "3", dips)],
-            [(overheadPress.name, "12", "3", overheadPress), (lateralRaises.name, "15", "3", lateralRaises), (rearDeltRaises.name, "15", "3", rearDeltRaises), (frontRaises.name, "15", "3", frontRaises), (cableLatRaises.name, "TF", "3", cableLatRaises)], [(restToDo.name, "", "", restToDo)],
+            [(overheadPress.name, "12", "3", overheadPress), (lateralRaises.name, "15", "3", lateralRaises), (rearDeltRaises.name, "15", "3", rearDeltRaises), (frontRaises.name, "15", "3", frontRaises), (cableLatRaises.name, "TF", "3", cableLatRaises)],
+            [(rest.name, "", "", rest)],
             [(sprints.name, "TF", "3", sprints), (crunches.name, "20-25", "3", crunches), (legRaises.name, "20-25", "3", legRaises), (toeTouches.name, "20-25", "3", toeTouches), (sitUps.name, "20-25", "3", sitUps)]]
 
         let maintainWeightWorkouts: [[(String, String, String, Exercise)]] = [
             [(deadlift.name, "8", "3", deadlift), (latPulldown.name, "6-8", "3",latPulldown), (tBarRows.name, "6-8" ,"3",tBarRows), (bicepCurls.name, "8-10", "3", bicepCurls), (bicepBurnouts.name, "TF" , "3", bicepBurnouts)],
             [(squat.name, "6-8", "3", squat), (legPress.name, "6-8", "3", legPress), (legExtensions.name, "12", "3", legExtensions), (legCurls.name, "12", "3", legCurls), (calfRaises.name, "20", "3", calfRaises)],
-            [(restToDo.name, "", "", restToDo)],
+            [(rest.name, "", "", rest)],
             [(benchPress.name, "6-8", "3", benchPress), (chestFlys.name, "12", "3", chestFlys), (tricepExtensions.name, "10", "3", tricepExtensions), (tricepKickbacks.name, "12", "3", tricepKickbacks), (dips.name, "TF", "3", dips)],
             [(overheadPress.name, "6-8", "3", overheadPress), (lateralRaises.name, "10", "3", lateralRaises), (rearDeltRaises.name, "10", "3", rearDeltRaises), (frontRaises.name, "10", "3", frontRaises), (cableLatRaises.name, "TF", "3", cableLatRaises)],
-            [(restToDo.name, "", "",restToDo)],
+            [(rest.name, "", "",rest)],
             [(sprints.name, "TF", "3", sprints), (crunches.name, "20-25", "3", crunches), (legRaises.name, "20-25", "3", legRaises), (toeTouches.name, "20-25", "3", toeTouches), (sitUps.name, "20-25", "3", sitUps)]]
         
         let buildMuscleWorkouts: [[(String, String, String, Exercise)]] = [
             [(deadlift.name, "5", "5", deadlift), (latPulldown.name, "6-8", "3", latPulldown), (tBarRows.name, "5" ,"5", tBarRows), (bicepCurls.name, "6-8", "3", bicepCurls), (bicepBurnouts.name, "TF" , "3", bicepBurnouts)],
             [(squat.name, "5", "5", squat), (legPress.name, "6-8", "3", legPress), (legExtensions.name, "12", "3", legExtensions), (legCurls.name, "12", "3", legCurls), (calfRaises.name, "20", "3", calfRaises)],
-            [(restToDo.name, "", "", restToDo)],
+            [(rest.name, "", "", rest)],
             [(benchPress.name, "5", "5", benchPress), (chestFlys.name, "12", "3", chestFlys), (tricepExtensions.name, "6-8", "3", tricepExtensions), (tricepKickbacks.name, "12", "3", tricepKickbacks), (dips.name, "TF", "3", dips)],
             [(overheadPress.name, "5", "5", overheadPress), (lateralRaises.name, "8", "3", lateralRaises), (rearDeltRaises.name, "8", "3", rearDeltRaises), (frontRaises.name, "8", "3", frontRaises), (cableLatRaises.name, "TF", "3", cableLatRaises)],
-            [(restToDo.name, "", "", restToDo)],
+            [(rest.name, "", "", rest)],
             [(sprints.name, "TF", "3", sprints), (crunches.name, "20-25", "3", crunches), (legRaises.name, "20-25", "3", legRaises), (toeTouches.name, "20-25", "3", toeTouches), (sitUps.name, "20-25", "3", sitUps)]]
         
         if goal == "loseWeight" {

@@ -116,6 +116,7 @@ class AccountInformationViewController: UIViewController, UITextFieldDelegate {
         user.setValue(height, forKey: "height")
         user.setValue(weight, forKey: "weight")
         user.setValue(goalWeight, forKey: "goalWeight")
+        user.setValue(true, forKey: "colorSetting")
         
         // Commit the changes.
         do {

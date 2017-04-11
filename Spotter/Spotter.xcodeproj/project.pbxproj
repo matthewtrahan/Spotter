@@ -25,7 +25,10 @@
 		71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */; };
 		71C00AD61E92CD8A00CDBCE3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AD51E92CD8A00CDBCE3 /* Exercise.swift */; };
 		71C00AD81E92D61200CDBCE3 /* ExerciseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AD71E92D61200CDBCE3 /* ExerciseDetailsViewController.swift */; };
-		71C00ADC1E9661F800CDBCE3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00ADB1E9661F800CDBCE3 /* SettingsViewController.swift */; };
+		71C00AE11E9D010E00CDBCE3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AE01E9D010E00CDBCE3 /* SettingsTableViewController.swift */; };
+		71C00AE31E9D33CA00CDBCE3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AE21E9D33C900CDBCE3 /* Config.swift */; };
+		71C00AE51E9D384500CDBCE3 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AE41E9D384500CDBCE3 /* Appearance.swift */; };
+		71C00AE91E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00AE81E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,10 @@
 		71B488121E6BC67900338836 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		71C00AD51E92CD8A00CDBCE3 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		71C00AD71E92D61200CDBCE3 /* ExerciseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsViewController.swift; sourceTree = "<group>"; };
-		71C00ADB1E9661F800CDBCE3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		71C00AE01E9D010E00CDBCE3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		71C00AE21E9D33C900CDBCE3 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		71C00AE41E9D384500CDBCE3 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		71C00AE81E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseHeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +131,10 @@
 		71C00ADF1E96A18D00CDBCE3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				71C00ADB1E9661F800CDBCE3 /* SettingsViewController.swift */,
+				71C00AE01E9D010E00CDBCE3 /* SettingsTableViewController.swift */,
+				71C00AE21E9D33C900CDBCE3 /* Config.swift */,
+				71C00AE41E9D384500CDBCE3 /* Appearance.swift */,
+				71C00AE81E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -204,13 +213,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B4880B1E6BC64600338836 /* ActivityLevelViewController.swift in Sources */,
+				71C00AE51E9D384500CDBCE3 /* Appearance.swift in Sources */,
 				7164A51C1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift in Sources */,
 				71B4880D1E6BC65700338836 /* MoreAboutYouViewController.swift in Sources */,
 				71C00AD81E92D61200CDBCE3 /* ExerciseDetailsViewController.swift in Sources */,
+				71C00AE31E9D33CA00CDBCE3 /* Config.swift in Sources */,
 				71B488111E6BC66E00338836 /* AccountInformationViewController.swift in Sources */,
 				7164A5231E7DC9A80064E73B /* TabBarViewController.swift in Sources */,
+				71C00AE11E9D010E00CDBCE3 /* SettingsTableViewController.swift in Sources */,
+				71C00AE91E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift in Sources */,
 				71C00AD61E92CD8A00CDBCE3 /* Exercise.swift in Sources */,
-				71C00ADC1E9661F800CDBCE3 /* SettingsViewController.swift in Sources */,
 				71B488081E6BC61F00338836 /* UltimateGoalViewController.swift in Sources */,
 				71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */,
 				71B487F81E65C5CF00338836 /* Spotter.xcdatamodeld in Sources */,

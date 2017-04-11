@@ -16,16 +16,25 @@ class TodaysWorkoutTableVC: UITableViewController {
     var user: String?
     var userWorkout: [(String, String, String, Exercise)]?
     var userTitles: [String]?
+    var colorSettings: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         let defaults = UserDefaults.standard
-        
+
         // Get the username from UserDefaults
         self.user = defaults.value(forKey: "username") as? String
         
         userWorkout = self.getUsersPlan(user: user!)
+    }
+    
+    // this refreshes the workouts when a new setting is selected
+    override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        self.user = defaults.value(forKey: "username") as? String
+        userWorkout = self.getUsersPlan(user: user!)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,6 +96,8 @@ class TodaysWorkoutTableVC: UITableViewController {
                 // fetch the user's goal
                 let objectEntity: User = fetchResult.first as! User
                 let userGoal = objectEntity.ultimateGoal
+                colorSettings = objectEntity.colorSetting
+                loadColors(setting: colorSettings)
                 if userGoal == "loseWeight" {
                     userTitles = workoutData.getWorkoutTitles(goal: userGoal!)
                     var allWorkouts = workoutData.getWorkoutPlans(goal: userGoal!)
@@ -105,6 +116,22 @@ class TodaysWorkoutTableVC: UITableViewController {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         return [("error", "", "", Exercise(name: "error", description: "error", videoLink: "error"))]
+    }
+    
+    func loadColors(setting: Bool) {
+        if setting {
+            Appearance.updateCellColor(color: UIColor.black)
+            Appearance.updateNavBarColor(color: UIColor.black)
+            self.navigationController?.navigationBar.backgroundColor = UIColor.black
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+            self.navigationController?.navigationBar.barTintColor = UIColor.black
+        } else {
+            Appearance.updateCellColor(color: Config.toggleColor)
+            Appearance.updateNavBarColor(color: Config.toggleColor)
+            self.navigationController?.navigationBar.backgroundColor = Config.toggleColor
+            self.navigationController?.navigationBar.tintColor = Config.toggleColor
+            self.navigationController?.navigationBar.barTintColor = Config.toggleColor
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
