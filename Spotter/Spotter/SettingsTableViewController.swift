@@ -204,7 +204,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
             user?.setValue(update, forKey: key)
         } else if key == "weight" {
             let update: Double = Double(setting)!
-            user?.setValue(update, forKey: key)ga
+            user?.setValue(update, forKey: key)
         }
         
         do {
