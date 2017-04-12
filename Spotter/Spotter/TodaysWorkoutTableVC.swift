@@ -139,6 +139,8 @@ class TodaysWorkoutTableVC: UITableViewController {
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         let seg = segue.destination as! ExerciseDetailsViewController
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let chosenExercise = userWorkout?[indexPath.row - 1].3
