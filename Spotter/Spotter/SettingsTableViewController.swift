@@ -21,6 +21,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
     var user: User?
     var alertController: UIAlertController? = nil
     var colorSetting: Bool = true
+    var newWeight: UITextField? = nil
     
     var logoutClicked: Bool = false
     
@@ -71,11 +72,46 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         }
     }
     
+    // different setting functionalities
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
             togglePicker()
         }
-        // add a check for logging out
+        // provide an alert controller to get a new weight
+        else if indexPath.section == 0 && indexPath.row == 2 {
+            self.alertController = UIAlertController(title: "Update Weight", message: "Please enter a new weight. Current weight: \(weightDetail.text!)", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                // add a .0 to the end for consistency or only take in the first digit after decimal
+                if (self.newWeight?.text)!.contains(".") {
+                    let index = (self.newWeight?.text)!.characters.index(of: ".")
+                    let end = (self.newWeight?.text)!.substring(from: index!)
+                    let realEnd = end.substring(to: end.length - (end.length - 2))
+                    self.weightDetail.text! = (self.newWeight?.text)!.substring(to: index!) + realEnd
+                } else {
+                    self.weightDetail.text! = (self.newWeight?.text)! + ".0"
+                }
+                self.updateCD(key: "weight", setting: self.weightDetail.text!)
+                print("Ok Button Pressed")
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) -> Void in
+                print("Cancel Button Pressed")
+            }
+            
+            self.alertController!.addAction(ok)
+            self.alertController!.addAction(cancel)
+            
+            self.alertController!.addTextField { (textField) -> Void in
+                // Enter the textfield customization code here.
+                self.newWeight = textField
+                self.newWeight?.placeholder = "New Weight"
+            }
+            
+            newWeight!.keyboardType = UIKeyboardType.decimalPad
+            
+            present(self.alertController!, animated: true, completion: nil)
+        }
+        // add a check for logging out with a action sheet
         else if indexPath.section == 2 && indexPath.row == 0 {
             self.alertController = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
             
@@ -166,6 +202,9 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         } else if key == "colorSetting" {
             let update: Bool = colorSwitch.isOn ? true : false
             user?.setValue(update, forKey: key)
+        } else if key == "weight" {
+            let update: Double = Double(setting)!
+            user?.setValue(update, forKey: key)ga
         }
         
         do {
@@ -221,4 +260,33 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         self.tableView.reloadData()
     }
 
+}
+
+// so indexing a string is normal
+extension String {
+    
+    var length: Int {
+        return self.characters.count
+    }
+    
+    subscript (i: Int) -> String {
+        return self[Range(i ..< i + 1)]
+    }
+    
+    func substring(from: Int) -> String {
+        return self[Range(min(from, length) ..< length)]
+    }
+    
+    func substring(to: Int) -> String {
+        return self[Range(0 ..< max(0, to))]
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
+                                            upper: min(length, max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return self[Range(start ..< end)]
+    }
+    
 }
