@@ -550,19 +550,27 @@
                                 </constraints>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IIT-3Q-aRe">
+                                <rect key="frame" x="16" y="72" width="343" height="243"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Hj-bk-McF" firstAttribute="leading" secondItem="AaJ-xw-Z7j" secondAttribute="leadingMargin" id="0Dn-4K-ws9"/>
+                            <constraint firstItem="IIT-3Q-aRe" firstAttribute="leading" secondItem="AaJ-xw-Z7j" secondAttribute="leadingMargin" id="9ZT-wX-Rzy"/>
                             <constraint firstItem="FsL-aO-QDG" firstAttribute="trailing" secondItem="AaJ-xw-Z7j" secondAttribute="trailingMargin" id="agD-Y1-yWU"/>
                             <constraint firstItem="FsL-aO-QDG" firstAttribute="leading" secondItem="AaJ-xw-Z7j" secondAttribute="leadingMargin" id="cjf-bb-adA"/>
                             <constraint firstItem="1Hj-bk-McF" firstAttribute="trailing" secondItem="AaJ-xw-Z7j" secondAttribute="trailingMargin" id="hVy-TJ-OPC"/>
+                            <constraint firstItem="IIT-3Q-aRe" firstAttribute="top" secondItem="cMR-gb-Ebz" secondAttribute="bottom" constant="8" id="kC2-TR-28m"/>
                             <constraint firstItem="1Hj-bk-McF" firstAttribute="top" secondItem="FsL-aO-QDG" secondAttribute="bottom" constant="8" id="tTm-gc-zII"/>
+                            <constraint firstItem="IIT-3Q-aRe" firstAttribute="trailing" secondItem="AaJ-xw-Z7j" secondAttribute="trailingMargin" id="tjg-7g-xbl"/>
+                            <constraint firstItem="1Hj-bk-McF" firstAttribute="top" secondItem="IIT-3Q-aRe" secondAttribute="bottom" constant="8" id="v8Q-81-1aW"/>
                             <constraint firstItem="FsL-aO-QDG" firstAttribute="top" secondItem="cMR-gb-Ebz" secondAttribute="bottom" constant="8" id="wYh-WX-t32"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="exerciseDesc" destination="1Hj-bk-McF" id="8gH-X6-BTt"/>
+                        <outlet property="iv" destination="IIT-3Q-aRe" id="Lmy-ip-wY3"/>
                         <outlet property="wv" destination="FsL-aO-QDG" id="GkS-09-BgD"/>
                     </connections>
                 </viewController>

@@ -11,6 +11,7 @@ import UIKit
 class ExerciseDetailsViewController: UIViewController {
 
     @IBOutlet weak var wv: UIWebView!
+    @IBOutlet weak var iv: UIImageView!
     @IBOutlet weak var exerciseDesc: UILabel!
     
     var selectedExercise: Exercise?
@@ -31,10 +32,16 @@ class ExerciseDetailsViewController: UIViewController {
     }
     
     func loadYoutube(videoID: String) {
-        guard
-            let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)")
-            else { return }
-        wv.loadRequest(URLRequest(url: youtubeURL))
+        if videoID == "" {
+            // if it's a rest day, use a little image icon
+            let image = #imageLiteral(resourceName: "Spotter---Rest-Icon")
+            iv.image = image
+        } else {
+            guard
+                let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)")
+                else { return }
+            wv.loadRequest(URLRequest(url: youtubeURL))
+        }
     }
 
 }
