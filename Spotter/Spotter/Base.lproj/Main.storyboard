@@ -285,65 +285,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29K-pe-HB6" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="72" width="343" height="374"/>
+                                <rect key="frame" x="16" y="107" width="343" height="428"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckg-2o-h3L">
-                                <rect key="frame" x="65" y="476" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojt-Rd-dcc">
-                                <rect key="frame" x="17" y="525" width="93" height="21"/>
+                                <rect key="frame" x="17" y="547" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eRn-c2-Ism">
-                                <rect key="frame" x="114" y="471" width="245" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-aG-4Xd">
-                                <rect key="frame" x="118" y="520" width="241" height="30"/>
+                                <rect key="frame" x="118" y="543" width="241" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-Vv-awQ">
-                                <rect key="frame" x="156.5" y="566" width="62" height="30"/>
+                                <rect key="frame" x="157" y="578" width="62" height="30"/>
                                 <state key="normal" title="Log Data"/>
                                 <connections>
                                     <action selector="logData:" destination="wsq-sq-7M6" eventType="touchUpInside" id="Cy9-cK-GTf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;exercise&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3E-a3-0Cu">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pbj-Vv-awQ" firstAttribute="top" secondItem="fM5-aG-4Xd" secondAttribute="bottom" constant="16" id="2xz-Sq-ad5"/>
-                            <constraint firstItem="29K-pe-HB6" firstAttribute="top" secondItem="jVW-ZT-PgO" secondAttribute="bottom" constant="8" id="3EJ-rm-Qw5"/>
-                            <constraint firstItem="eRn-c2-Ism" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="8jy-G4-9MH"/>
+                            <constraint firstItem="pbj-Vv-awQ" firstAttribute="top" secondItem="fM5-aG-4Xd" secondAttribute="bottom" constant="5" id="2xz-Sq-ad5"/>
+                            <constraint firstItem="29K-pe-HB6" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="4Gy-RU-0yL"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="leading" secondItem="ojt-Rd-dcc" secondAttribute="trailing" constant="8" id="EUA-Dn-KYa"/>
-                            <constraint firstItem="ckg-2o-h3L" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" constant="49" id="GD8-NW-5uv"/>
+                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="IQ5-FU-91o"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="leading" secondItem="ojt-Rd-dcc" secondAttribute="trailing" constant="8" id="MYS-qz-5Se"/>
+                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="NIe-FR-flf"/>
+                            <constraint firstItem="fM5-aG-4Xd" firstAttribute="top" secondItem="29K-pe-HB6" secondAttribute="bottom" constant="8" id="NtC-PW-M9g"/>
                             <constraint firstItem="29K-pe-HB6" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="OtD-57-Vhf"/>
-                            <constraint firstItem="eRn-c2-Ism" firstAttribute="leading" secondItem="ckg-2o-h3L" secondAttribute="trailing" constant="8" id="XGU-yx-U8p"/>
+                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="top" secondItem="jVW-ZT-PgO" secondAttribute="bottom" constant="8" id="Qkl-Rw-MK9"/>
                             <constraint firstItem="ojt-Rd-dcc" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leading" constant="17" id="XiE-IR-emt"/>
-                            <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="pbj-Vv-awQ" secondAttribute="bottom" constant="22" id="YN2-WV-jRl"/>
+                            <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="pbj-Vv-awQ" secondAttribute="bottom" constant="10" id="YN2-WV-jRl"/>
+                            <constraint firstItem="29K-pe-HB6" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="YNS-da-J3s"/>
+                            <constraint firstItem="29K-pe-HB6" firstAttribute="top" secondItem="H3E-a3-0Cu" secondAttribute="bottom" constant="14" id="YxT-34-pko"/>
                             <constraint firstItem="pbj-Vv-awQ" firstAttribute="centerX" secondItem="vpY-X9-ZxL" secondAttribute="centerX" id="i11-vf-rIA"/>
-                            <constraint firstItem="eRn-c2-Ism" firstAttribute="top" secondItem="29K-pe-HB6" secondAttribute="bottom" constant="25" id="k0g-Ed-x49"/>
-                            <constraint firstItem="ojt-Rd-dcc" firstAttribute="top" secondItem="ckg-2o-h3L" secondAttribute="bottom" constant="28" id="ntY-ki-cGR"/>
-                            <constraint firstItem="fM5-aG-4Xd" firstAttribute="top" secondItem="eRn-c2-Ism" secondAttribute="bottom" constant="19" id="oEE-ct-RFw"/>
-                            <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="ojt-Rd-dcc" secondAttribute="bottom" constant="72" id="uaU-nw-lnZ"/>
+                            <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="ojt-Rd-dcc" secondAttribute="bottom" constant="50" id="uaU-nw-lnZ"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="uhZ-us-uc3"/>
                             <constraint firstItem="29K-pe-HB6" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="ux2-wu-gYj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chart" destination="29K-pe-HB6" id="XMC-OB-bCi"/>
-                        <outlet property="dateTextField" destination="eRn-c2-Ism" id="3aS-vp-9dL"/>
+                        <outlet property="chartTitle" destination="H3E-a3-0Cu" id="JHO-Wc-rnK"/>
                         <outlet property="weightTextField" destination="fM5-aG-4Xd" id="Ffg-jb-2Aa"/>
                     </connections>
                 </viewController>

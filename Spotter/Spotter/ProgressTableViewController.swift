@@ -66,5 +66,13 @@ class ProgressTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = backItem
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        let seg = segue.destination as! ChartsViewController
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let sectionNumber = indexPath.section
+            let key = sortedTitles?[sectionNumber]
+            let chosen = exercises[key!]?[indexPath.row]
+            seg.exercise = chosen
+        }
     }
 }

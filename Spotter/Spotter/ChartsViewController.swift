@@ -15,11 +15,17 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var chart: LineChartView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var chartTitle: UILabel!
+    
+    var exercise: Exercise?
+    weak var axisFormatDelegate: IAxisValueFormatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        axisFormatDelegate = self
         updateChartWithData()
         chart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        self.chartTitle.text = exercise!.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,13 +37,20 @@ class ChartsViewController: UIViewController {
         var dataEntries: [ChartDataEntry] = []
         let repWeights = getChartDataFromDatabase()
         for i in (repWeights.count - 8)..<repWeights.count {
-            //let dataEntry = BarChartDataEntry(x: Double(i), y: Double(repWeights[i].weight))
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(repWeights[i].weight))
+            let timeIntervalForDate: TimeInterval = repWeights[i].date.timeIntervalSince1970
+            let dataEntry = BarChartDataEntry(x: Double(timeIntervalForDate), y: Double(repWeights[i].weight))
             dataEntries.append(dataEntry)
         }
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Rep Weight")
         let chartData = LineChartData(dataSet: chartDataSet)
         chart.data = chartData
+        
+        let xAxis = chart.xAxis
+        xAxis.valueFormatter = axisFormatDelegate
+        xAxis.xOffset = 1.0
+        xAxis.spaceMin = 1.0
+        xAxis.spaceMax = 1.0
+    
         chart.chartDescription?.text = ""
         chart.xAxis.labelPosition = .bottom
     }
@@ -71,4 +84,13 @@ class ChartsViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: axisFormatDelegate
+extension UIViewController: IAxisValueFormatter {
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        return dateFormatter.string(from: Date(timeIntervalSince1970: (value)))
+    }
 }
