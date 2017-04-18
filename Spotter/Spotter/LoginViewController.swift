@@ -13,6 +13,7 @@
 
 import UIKit
 import CoreData
+import Charts
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 

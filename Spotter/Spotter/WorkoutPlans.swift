@@ -99,9 +99,7 @@ class WorkoutPlans {
                                                "Legs": [WorkoutPlans.squat, WorkoutPlans.legPress, WorkoutPlans.legExtensions, WorkoutPlans.legCurls, WorkoutPlans.calfRaises],
                                                "Chest": [WorkoutPlans.benchPress, WorkoutPlans.chestFlys],
                                                "Triceps": [WorkoutPlans.tricepExtensions, WorkoutPlans.tricepKickbacks, WorkoutPlans.dips],
-                                               "Shoulders": [WorkoutPlans.overheadPress, WorkoutPlans.lateralRaises, WorkoutPlans.rearDeltRaises, WorkoutPlans.frontRaises, WorkoutPlans.cableLatRaises],
-                                               "Cardio": [WorkoutPlans.sprints],
-                                               "Abs": [WorkoutPlans.crunches, WorkoutPlans.legRaises, WorkoutPlans.toeTouches, WorkoutPlans.sitUps]]
+                                               "Shoulders": [WorkoutPlans.overheadPress, WorkoutPlans.lateralRaises, WorkoutPlans.rearDeltRaises, WorkoutPlans.frontRaises, WorkoutPlans.cableLatRaises]]
         return exercises
     }
     
