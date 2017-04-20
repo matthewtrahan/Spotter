@@ -7,13 +7,15 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
+import Realm
 
 class ChartData: Object {
     dynamic var weight: Int = Int(0)
     dynamic var reps: Int = Int(0)
     dynamic var date: Date = Date()
+    dynamic var exerciseName: String?
+    dynamic var category: Category?
     
     func save() {
         do {
@@ -24,5 +26,9 @@ class ChartData: Object {
         } catch let error as NSError {
             fatalError(error.localizedDescription)
         }
+    }
+    
+    func getMonthDay() -> Date {
+        return Date()
     }
 }

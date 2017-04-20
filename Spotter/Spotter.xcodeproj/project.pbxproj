@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		70E1873E2EEE3124C32F04D2 /* Pods_Spotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0787847EDBEFA39121D1C692 /* Pods_Spotter.framework */; };
 		711753611E785577008A4884 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B488051E6BC5F300338836 /* LoginViewController.swift */; };
+		7149B3BB1EA8D62000A3A2CF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7149B3BA1EA8D62000A3A2CF /* Category.swift */; };
 		7164A51C1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51B1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift */; };
 		7164A51E1E7D7A780064E73B /* WorkoutPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */; };
 		7164A5201E7D8AC30064E73B /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */; };
 		7164A5231E7DC9A80064E73B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7164A5221E7DC9A80064E73B /* TabBarViewController.swift */; };
-		718185411EA64156005D1CD6 /* chartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718185401EA64156005D1CD6 /* chartData.swift */; };
+		718185411EA64156005D1CD6 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718185401EA64156005D1CD6 /* ChartData.swift */; };
 		71B487F01E65C5CF00338836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B487EF1E65C5CF00338836 /* AppDelegate.swift */; };
 		71B487F51E65C5CF00338836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B487F31E65C5CF00338836 /* Main.storyboard */; };
 		71B487F81E65C5CF00338836 /* Spotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71B487F61E65C5CF00338836 /* Spotter.xcdatamodeld */; };
@@ -78,11 +79,12 @@
 /* Begin PBXFileReference section */
 		0787847EDBEFA39121D1C692 /* Pods_Spotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		200FFBE83EC6266753E05B12 /* Pods-Spotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotter/Pods-Spotter.debug.xcconfig"; sourceTree = "<group>"; };
+		7149B3BA1EA8D62000A3A2CF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7164A51B1E7D79DA0064E73B /* TodaysWorkoutTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysWorkoutTableVC.swift; sourceTree = "<group>"; };
 		7164A51D1E7D7A780064E73B /* WorkoutPlans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlans.swift; sourceTree = "<group>"; };
 		7164A51F1E7D8AC30064E73B /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		7164A5221E7DC9A80064E73B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		718185401EA64156005D1CD6 /* chartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chartData.swift; sourceTree = "<group>"; };
+		718185401EA64156005D1CD6 /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		71B487EC1E65C5CE00338836 /* Spotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B487EF1E65C5CF00338836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71B487F41E65C5CF00338836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,7 +211,8 @@
 			children = (
 				71C00B2D1EA1019900CDBCE3 /* ProgressTableViewController.swift */,
 				71C00E1F1EA14E3300CDBCE3 /* ChartsViewController.swift */,
-				718185401EA64156005D1CD6 /* chartData.swift */,
+				7149B3BA1EA8D62000A3A2CF /* Category.swift */,
+				718185401EA64156005D1CD6 /* ChartData.swift */,
 			);
 			name = Progress;
 			sourceTree = "<group>";
@@ -393,8 +396,9 @@
 				71C00AE91E9D437600CDBCE3 /* ExerciseHeaderTableViewCell.swift in Sources */,
 				71C00AD61E92CD8A00CDBCE3 /* Exercise.swift in Sources */,
 				71B488081E6BC61F00338836 /* UltimateGoalViewController.swift in Sources */,
-				718185411EA64156005D1CD6 /* chartData.swift in Sources */,
+				718185411EA64156005D1CD6 /* ChartData.swift in Sources */,
 				71B488131E6BC67900338836 /* ForgotPasswordViewController.swift in Sources */,
+				7149B3BB1EA8D62000A3A2CF /* Category.swift in Sources */,
 				71B487F81E65C5CF00338836 /* Spotter.xcdatamodeld in Sources */,
 				7164A5201E7D8AC30064E73B /* WorkoutTableViewCell.swift in Sources */,
 				71C00E201EA14E3300CDBCE3 /* ChartsViewController.swift in Sources */,
