@@ -15,7 +15,8 @@ class ChartData: Object {
     dynamic var reps: Int = Int(0)
     dynamic var date: Date = Date()
     dynamic var exerciseName: String?
-    dynamic var category: Category?
+    dynamic var user: String?
+    dynamic var category: Category!
     
     func save() {
         do {

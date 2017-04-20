@@ -84,6 +84,12 @@ class UltimateGoalViewController: UIViewController {
         } else {
             seg.goal = "buildMuscle"
         }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     // if a user has not chosen an option, do not let them continue

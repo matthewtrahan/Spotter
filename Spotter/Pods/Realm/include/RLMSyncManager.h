@@ -62,9 +62,13 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 @interface RLMSyncManager : NSObject
 
 /**
- An optional block which can be used to report sync-related errors to your application. Errors reported through this
- mechanism are always fatal; they represent attempts to open sessions which are invalid (for example, using malformed
- URLs).
+ A block which can optionally be set to report sync-related errors to your application.
+
+ Errors reported through this mechanism are fatal, with several exceptions. Please consult
+ `RLMSyncError` for information about the types of errors that can be reported through
+ the block, and for for suggestions on handling recoverable error codes.
+
+ @see `RLMSyncError`
  */
 @property (nullable, nonatomic, copy) RLMSyncErrorReportingBlock errorHandler;
 
@@ -72,7 +76,7 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
  A reverse-DNS string uniquely identifying this application. In most cases this is automatically set by the SDK, and
  does not have to be explicitly configured.
  */
-@property (nonatomic) NSString *appID;
+@property (nonatomic, copy) NSString *appID;
 
 /**
  Whether SSL certificate validation should be disabled. SSL certificate validation is ON by default. Setting this
@@ -83,8 +87,13 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 @property (nonatomic) BOOL disableSSLValidation;
 
 /**
- The logging threshold which newly opened synced Realms will use. Defaults to `RLMSyncLogLevelInfo`. Set this before
- any synced Realms are opened. Logging strings are output to ASL.
+ The logging threshold which newly opened synced Realms will use. Defaults to
+ `RLMSyncLogLevelInfo`.
+
+ Logging strings are output to Apple System Logger.
+
+ @warning This property must be set before any synced Realms are opened. Setting it after
+          opening any synced Realm will do nothing.
  */
 @property (nonatomic) RLMSyncLogLevel logLevel;
 
