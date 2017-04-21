@@ -15,7 +15,6 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var chart: LineChartView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
-    @IBOutlet weak var chartTitle: UILabel!
     
     var exercise: Exercise?
     let exercises: [String: [Exercise]] = WorkoutPlans.getDictOfExercises()
@@ -28,6 +27,8 @@ class ChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = (exercise?.name)!
+        
         let defaults = UserDefaults.standard
         
         // Get the username from UserDefaults
@@ -35,18 +36,21 @@ class ChartsViewController: UIViewController {
         
         axisFormatDelegate = self
         updateChartWithData()
-        chart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        self.chartTitle.text = exercise!.name
-        //populateExercises()
+        chart.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
         
         weightTextField.keyboardType = .numberPad
         populateExercises()
         getSelectedCategory()
-        
-        chart.noDataText = "No data available."
 
         // print location for viewing in realm browser
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if chart.data == nil {
+            chart.backgroundColor = getChartColor()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,7 +103,19 @@ class ChartsViewController: UIViewController {
         }
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Rep Weight")
         let chartData = LineChartData(dataSet: chartDataSet)
-        chart.data = chartData
+        
+        if chartData.entryCount > 0 {
+            chart.data = chartData
+        } else {
+            chart.backgroundColor = getChartColor()
+            chart.noDataTextColor = .white
+            chart.noDataFont = UIFont(name: chart.noDataFont.fontName, size: 17.0)
+        }
+        
+        // no data text
+        chart.noDataText = "No data available."
+        // user interaction
+        chart.isUserInteractionEnabled = false
         
         chart.rightAxis.drawLabelsEnabled = false
         chart.xAxis.enabled = false
@@ -119,9 +135,18 @@ class ChartsViewController: UIViewController {
             fatalError(error.localizedDescription)
         }
     }
+    
+    func getChartColor() -> UIColor {
+        if self.navigationController?.navigationBar.backgroundColor == UIColor.black {
+            return UIColor.black
+        } else {
+            return Config.toggleColor
+        }
+    }
 
     @IBAction func logData(_ sender: Any) {
-        if let value = weightTextField.text , value != "" {
+        if let value = weightTextField.text , value != "", weightTextField.text?.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil {
+            chart.backgroundColor = UIColor.white
             let weight = ChartData()
             weight.weight = (NumberFormatter().number(from: value)?.intValue)!
             weight.exerciseName = exercise!.name

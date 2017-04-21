@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29K-pe-HB6" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="107" width="374" height="497"/>
+                                <rect key="frame" x="20" y="72" width="374" height="532"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojt-Rd-dcc">
@@ -307,28 +307,19 @@
                                     <action selector="logData:" destination="wsq-sq-7M6" eventType="touchUpInside" id="Cy9-cK-GTf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;exercise&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3E-a3-0Cu">
-                                <rect key="frame" x="20" y="72" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pbj-Vv-awQ" firstAttribute="top" secondItem="fM5-aG-4Xd" secondAttribute="bottom" constant="5" id="2xz-Sq-ad5"/>
                             <constraint firstItem="29K-pe-HB6" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="4Gy-RU-0yL"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="leading" secondItem="ojt-Rd-dcc" secondAttribute="trailing" constant="8" id="EUA-Dn-KYa"/>
-                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="IQ5-FU-91o"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="leading" secondItem="ojt-Rd-dcc" secondAttribute="trailing" constant="8" id="MYS-qz-5Se"/>
-                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="NIe-FR-flf"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="top" secondItem="29K-pe-HB6" secondAttribute="bottom" constant="8" id="NtC-PW-M9g"/>
                             <constraint firstItem="29K-pe-HB6" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leadingMargin" id="OtD-57-Vhf"/>
-                            <constraint firstItem="H3E-a3-0Cu" firstAttribute="top" secondItem="jVW-ZT-PgO" secondAttribute="bottom" constant="8" id="Qkl-Rw-MK9"/>
+                            <constraint firstItem="29K-pe-HB6" firstAttribute="top" secondItem="jVW-ZT-PgO" secondAttribute="bottom" constant="8" id="UvA-ZX-PgY"/>
                             <constraint firstItem="ojt-Rd-dcc" firstAttribute="leading" secondItem="vpY-X9-ZxL" secondAttribute="leading" constant="17" id="XiE-IR-emt"/>
                             <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="pbj-Vv-awQ" secondAttribute="bottom" constant="10" id="YN2-WV-jRl"/>
                             <constraint firstItem="29K-pe-HB6" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="YNS-da-J3s"/>
-                            <constraint firstItem="29K-pe-HB6" firstAttribute="top" secondItem="H3E-a3-0Cu" secondAttribute="bottom" constant="14" id="YxT-34-pko"/>
                             <constraint firstItem="pbj-Vv-awQ" firstAttribute="centerX" secondItem="vpY-X9-ZxL" secondAttribute="centerX" id="i11-vf-rIA"/>
                             <constraint firstItem="KSE-N0-6Rg" firstAttribute="top" secondItem="ojt-Rd-dcc" secondAttribute="bottom" constant="50" id="uaU-nw-lnZ"/>
                             <constraint firstItem="fM5-aG-4Xd" firstAttribute="trailing" secondItem="vpY-X9-ZxL" secondAttribute="trailingMargin" id="uhZ-us-uc3"/>
@@ -337,13 +328,12 @@
                     </view>
                     <connections>
                         <outlet property="chart" destination="29K-pe-HB6" id="FY8-Ma-bz7"/>
-                        <outlet property="chartTitle" destination="H3E-a3-0Cu" id="JHO-Wc-rnK"/>
                         <outlet property="weightTextField" destination="fM5-aG-4Xd" id="Ffg-jb-2Aa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13Y-bi-VRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4770.3999999999996" y="482.60869565217394"/>
+            <point key="canvasLocation" x="4769.5652173913049" y="482.60869565217394"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="tTK-Tr-kRp">
