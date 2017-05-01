@@ -27,13 +27,14 @@ class ChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // show the user which exercise they are viewing
         self.navigationItem.title = (exercise?.name)!
         
-        let defaults = UserDefaults.standard
-        
         // Get the username from UserDefaults
+        let defaults = UserDefaults.standard
         self.user = defaults.value(forKey: "username") as? String
         
+        // for giving xAxis more meaningful data
         axisFormatDelegate = self
         updateChartWithData()
         chart.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
@@ -48,6 +49,8 @@ class ChartsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // use a nice color for when there's no data. this "refreshes" when going between tabs
         if chart.data == nil {
             chart.backgroundColor = getChartColor()
         }
@@ -58,6 +61,7 @@ class ChartsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // match the category to the chosen exercise
     func getSelectedCategory() {
         for i in 0..<realmExercises.count {
             if ((self.exercise?.name)!) == realmExercises[i].name {
@@ -67,9 +71,11 @@ class ChartsViewController: UIViewController {
         }
     }
     
+    // initiate the database if needed
     func populateExercises() {
-        
-        // the database is empty, so populate it
+
+        // the database is empty, so populate it by going through the exercises
+        // and making a category for them
         if realmExercises.count == 0 {
             try! realm.write() {
                 for (_, exercise) in exercises {
@@ -84,9 +90,12 @@ class ChartsViewController: UIViewController {
         }
     }
     
+    // pull data from the database to present it
     func updateChartWithData() {
         var dataEntries: [ChartDataEntry] = []
         let repWeights = getChartDataFromDatabase()
+        
+        // to keep things neat, only show the last 8 entries
         if repWeights.count > 8 {
             for i in (repWeights.count - 8)..<repWeights.count {
                 //let timeIntervalForDate: TimeInterval = repWeights[i].date.timeIntervalSince1970
@@ -94,6 +103,8 @@ class ChartsViewController: UIViewController {
                 dataEntries.append(dataEntry)
             }
         }
+            
+        // if there are less than 8 entries, show however many there are
         else {
             for i in 0..<repWeights.count {
                 //let timeIntervalForDate: TimeInterval = repWeights[i].date.timeIntervalSince1970
@@ -104,6 +115,7 @@ class ChartsViewController: UIViewController {
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Rep Weight")
         let chartData = LineChartData(dataSet: chartDataSet)
         
+        // if there is no data, we want to give the no data message and color the chart
         if chartData.entryCount > 0 {
             chart.data = chartData
         } else {
@@ -117,15 +129,17 @@ class ChartsViewController: UIViewController {
         // user interaction
         chart.isUserInteractionEnabled = false
         
+        // hide the redundant labels on right side of chart and meaningless xAxis data
         chart.rightAxis.drawLabelsEnabled = false
         chart.xAxis.enabled = false
+        chart.chartDescription?.text = ""
 
+//      xAxis formatting - bug in Charts pod messes up our idea
 //      let xAxis = chart.xAxis
 //      xAxis.valueFormatter = axisFormatDelegate
-  
-        chart.chartDescription?.text = ""
     }
     
+    // go into the database and query for exercises by the logged in user
     func getChartDataFromDatabase() -> Results<ChartData> {
         do {
             let realm = try Realm()
@@ -136,6 +150,7 @@ class ChartsViewController: UIViewController {
         }
     }
     
+    // in compliance with global app color, color the background to match the app
     func getChartColor() -> UIColor {
         if self.navigationController?.navigationBar.backgroundColor == UIColor.black {
             return UIColor.black
@@ -144,7 +159,9 @@ class ChartsViewController: UIViewController {
         }
     }
 
+    // let the user enter in new data
     @IBAction func logData(_ sender: Any) {
+        // if there is data in the text field and it is an int, create a new entry in the dbs
         if let value = weightTextField.text , value != "", weightTextField.text?.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil {
             chart.backgroundColor = UIColor.white
             let weight = ChartData()

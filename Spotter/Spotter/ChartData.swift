@@ -5,6 +5,7 @@
 //  Created by Matthew Trahan on 4/18/17.
 //  Copyright © 2017 Matthew Trahan. All rights reserved.
 //
+//  The actual data point that the user adds to the chart.
 
 import Foundation
 import RealmSwift
@@ -18,6 +19,7 @@ class ChartData: Object {
     dynamic var user: String?
     dynamic var category: Category!
     
+    // this helper function saves all of the data to the db
     func save() {
         do {
             let realm = try Realm()

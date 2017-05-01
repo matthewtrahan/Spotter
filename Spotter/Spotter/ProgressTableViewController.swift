@@ -18,6 +18,7 @@ class ProgressTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // sort the titles so it's presented A-Z
         self.titles = Array(exercises.keys)
         sortedTitles = titles?.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
     }
@@ -67,6 +68,7 @@ class ProgressTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        // pass the chosen exercise into the next vc
         let seg = segue.destination as! ChartsViewController
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let sectionNumber = indexPath.section
